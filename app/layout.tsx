@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from 'next-themes'
+import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -18,7 +19,10 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains-mono',
 })
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://example.com'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'Gaurav Patel - Product Engineer | MERN Stack Developer',
   description: 'Full Stack Engineer with 2+ years of experience building high-performance applications using React.js, Next.js, Node.js, and TypeScript. Specialized in creating scalable web solutions.',
   keywords: ['full-stack developer', 'mern stack', 'react', 'nextjs', 'nodejs', 'typescript', 'product engineer', 'gaurav patel', 'web developer', 'javascript', 'portfolio'],
@@ -46,7 +50,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {children}
+          <SmoothScrollProvider>
+            {children}
+          </SmoothScrollProvider>
         </ThemeProvider>
       </body>
     </html>

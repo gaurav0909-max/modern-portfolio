@@ -1,12 +1,13 @@
 import { cn } from '@/lib/utils'
 import { ButtonHTMLAttributes, ReactNode } from 'react'
+import type { IconType } from 'react-icons'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
   variant?: 'primary' | 'secondary' | 'glass' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
   className?: string
-  icon?: ReactNode
+  icon?: ReactNode | IconType
 }
 
 export function Button({
@@ -32,6 +33,17 @@ export function Button({
     lg: 'px-8 py-4 text-lg',
   }
 
+  const renderIcon = () => {
+    if (!icon) return null
+
+    if (typeof icon === 'function') {
+      const IconComponent = icon as IconType
+      return <IconComponent className="text-lg" />
+    }
+
+    return <span className="text-lg">{icon}</span>
+  }
+
   return (
     <button
       className={cn(
@@ -42,7 +54,7 @@ export function Button({
       )}
       {...props}
     >
-      {icon && <span className="text-lg">{icon}</span>}
+      {renderIcon()}
       {children}
     </button>
   )

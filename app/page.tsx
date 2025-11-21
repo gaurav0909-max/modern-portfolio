@@ -1,9 +1,11 @@
-import Hero from '@/components/sections/Hero';
+import HeroNew from '@/components/sections/HeroNew';
 import Projects from '@/components/sections/Projects';
 import About from '@/components/sections/About';
 import Contact from '@/components/sections/Contact';
 import MarqueeScroll from '@/components/ui/MarqueeScroll';
 import DockNavigation from '@/components/navigation/DockNavigation';
+import { CommandPalette } from '@/components/navigation/CommandPalette';
+import { ProgressNav } from '@/components/navigation/ProgressNav';
 import { getMarqueeSkills } from '@/data/skills';
 
 export default function Home() {
@@ -12,7 +14,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <Hero />
+      <HeroNew />
 
       {/* Tech Stack Marquee */}
       <section className="py-12 border-y border-white/5">
@@ -27,7 +29,7 @@ export default function Home() {
             label: skill.label,
             color: skill.color,
           }))}
-          speed={60}
+          speed={100}
           pauseOnHover
         />
       </section>
@@ -43,6 +45,12 @@ export default function Home() {
 
       {/* Dock Navigation */}
       <DockNavigation />
+
+      {/* Command Palette (Cmd+K) */}
+      <CommandPalette />
+
+      {/* Progress Navigation */}
+      <ProgressNav />
     </main>
   );
 }

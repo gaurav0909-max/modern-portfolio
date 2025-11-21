@@ -4,7 +4,9 @@ import { motion } from 'framer-motion';
 import { FiArrowRight, FiDownload, FiChevronDown } from 'react-icons/fi';
 import TypingAnimation from '@/components/features/TypingAnimation';
 import TrustBadges from '@/components/features/TrustBadges';
-import { Button } from '@/components/ui/Button';
+import { MagneticButton } from '@/components/ui/MagneticButton';
+import { GridBackground } from '@/components/backgrounds/GridBackground';
+import { TextReveal } from '@/components/animations/TextReveal';
 
 const roles = [
   'Product Engineer',
@@ -51,6 +53,9 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center px-6 py-20"
     >
+      {/* Grid background */}
+      <GridBackground />
+
       {/* Background gradient effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
@@ -103,22 +108,22 @@ export default function Hero() {
             variants={fadeInUp}
             className="flex flex-col sm:flex-row gap-4 mb-12 justify-center lg:justify-start"
           >
-            <Button
+            <MagneticButton
               variant="primary"
               size="lg"
               icon={FiArrowRight}
               onClick={scrollToProjects}
             >
               View Projects
-            </Button>
-            <Button
+            </MagneticButton>
+            <MagneticButton
               variant="glass"
               size="lg"
               icon={FiDownload}
               onClick={downloadResume}
             >
               Download Resume
-            </Button>
+            </MagneticButton>
           </motion.div>
 
           {/* Trust badges */}

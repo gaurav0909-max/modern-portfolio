@@ -11,6 +11,7 @@ out/
 .env
 .env.local
 .env.*.local
+.env.example
 
 # Logs
 npm-debug.log*
@@ -18,4 +19,19 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# S
+# Claude Code local settings
+.claude/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+nul
+
+# IDE folders
+.vscode/
+.idea/
+
+# Editor temp files
+*.swp
+*.swo
+*~

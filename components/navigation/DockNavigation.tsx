@@ -75,10 +75,11 @@ export default function DockNavigation() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.2 }}
       className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50"
+      style={{ width: 'fit-content' }}
     >
       <div className="relative">
         {/* Glassmorphic container */}
-        <div className="flex items-center gap-2 px-4 py-3 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl">
+        <div className="flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl">
           {/* Navigation items */}
           {navItems.map((item) => {
             const Icon = item.icon;

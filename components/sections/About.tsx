@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { FiBriefcase, FiAward, FiCode, FiTrendingUp } from 'react-icons/fi';
 import { GlassCard } from '@/components/ui/GlassCard';
+import { RevealCard } from '@/components/ui/RevealCard';
+import { AnimatedStat } from '@/components/ui/AnimatedStat';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -27,25 +29,29 @@ const staggerContainer = {
 const stats = [
   {
     icon: FiBriefcase,
-    value: '2+',
+    value: 2,
+    suffix: '+',
     label: 'Years Experience',
     color: 'text-primary',
   },
   {
     icon: FiCode,
-    value: '15+',
+    value: 15,
+    suffix: '+',
     label: 'Projects Delivered',
     color: 'text-secondary',
   },
   {
     icon: FiTrendingUp,
-    value: '10K+',
+    value: 10000,
+    suffix: '+',
     label: 'Active Users',
     color: 'text-accent',
   },
   {
     icon: FiAward,
-    value: '99%',
+    value: 99,
+    suffix: '%',
     label: 'Uptime Maintained',
     color: 'text-primary',
   },
@@ -128,16 +134,18 @@ export default function About() {
             className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-16"
           >
             {stats.map((stat, index) => (
-              <GlassCard
+              <RevealCard
                 key={index}
-                className="p-6 text-center hover:scale-105 transition-transform duration-300"
+                className="p-6 text-center hover:scale-105 transition-transform duration-300 group"
               >
-                <stat.icon className={`w-8 h-8 ${stat.color} mx-auto mb-3`} />
-                <div className={`text-3xl md:text-4xl font-bold mb-1 ${stat.color}`}>
-                  {stat.value}
-                </div>
+                <stat.icon className={`w-8 h-8 ${stat.color} mx-auto mb-3 transition-transform group-hover:scale-110`} />
+                <AnimatedStat
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  className={`text-3xl md:text-4xl mb-1 ${stat.color}`}
+                />
                 <div className="text-text-secondary text-sm">{stat.label}</div>
-              </GlassCard>
+              </RevealCard>
             ))}
           </motion.div>
 
@@ -148,7 +156,7 @@ export default function About() {
             </h3>
             <div className="space-y-6">
               {experiences.map((exp, index) => (
-                <GlassCard key={index} className="p-6 md:p-8">
+                <RevealCard key={index} className="p-6 md:p-8">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                     <div>
                       <h4 className="text-xl font-bold text-text-primary mb-1">{exp.role}</h4>
@@ -170,7 +178,7 @@ export default function About() {
                       </span>
                     ))}
                   </div>
-                </GlassCard>
+                </RevealCard>
               ))}
             </div>
           </motion.div>

@@ -15,16 +15,16 @@ export function Badge({
   icon
 }: BadgeProps) {
   const variants = {
-    default: 'bg-white/10 text-text-primary border-white/20',
-    primary: 'bg-primary/20 text-primary border-primary/30',
-    secondary: 'bg-secondary/20 text-secondary border-secondary/30',
-    accent: 'bg-accent/20 text-accent border-accent/30',
+    default: 'bg-white/10 text-text-primary border-white/20 hover:bg-white/20 hover:border-white/30',
+    primary: 'bg-primary/20 text-primary border-primary/30 hover:bg-primary/30 hover:border-primary/50',
+    secondary: 'bg-secondary/20 text-secondary border-secondary/30 hover:bg-secondary/30 hover:border-secondary/50',
+    accent: 'bg-accent/20 text-accent border-accent/30 hover:bg-accent/30 hover:border-accent/50',
   }
 
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium border backdrop-blur-sm',
+        'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium border backdrop-blur-sm select-none transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 ring-0 hover:ring-2 ring-current',
         variants[variant],
         className
       )}

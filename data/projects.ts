@@ -7,7 +7,8 @@ export const projects: Project[] = [
     tagline: 'Secure Cloud File Management',
     description:
       'Developed a secure cloud-based file management platform with drag-and-drop uploads, real-time previews, and shareable links, achieving sub-200ms API response times and 99.8% uptime.',
-    image: '/images/projects/storage-hub.jpg',
+    image:
+      'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80',
     video: '/videos/storage-hub.mp4',
     tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'JWT'],
     metrics: {
@@ -26,7 +27,8 @@ export const projects: Project[] = [
     tagline: 'Developer Discovery Platform',
     description:
       'Built a developer discovery platform to search GitHub profiles, repositories, and organizations with interactive dashboards, utilizing GraphQL API to reduce overhead by 60% and SSR for <1s page loads.',
-    image: '/images/projects/github-finder.jpg',
+    image:
+      'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80',
     video: '/videos/github-finder.mp4',
     tech: ['Next.js 14', 'GitHub API', 'GraphQL', 'TypeScript', 'Tailwind CSS', 'Vercel'],
     metrics: {
@@ -45,7 +47,8 @@ export const projects: Project[] = [
     tagline: 'Real-time Data Visualization',
     description:
       'Architected a plug-and-play analytics dashboard enabling real-time data visualization for internal teams. Built with React.js, Nest.js, and PostgreSQL, serving 10,000+ active users with 25% performance improvement.',
-    image: '/images/projects/analytics-dashboard.jpg',
+    image:
+      'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=80',
     tech: ['React.js', 'Nest.js', 'PostgreSQL', 'TypeScript', 'Chart.js'],
     metrics: {
       users: '10K+ active',
@@ -62,7 +65,8 @@ export const projects: Project[] = [
     tagline: 'Team Communication Platform',
     description:
       'Built a real-time team collaboration platform with instant messaging, file sharing, and presence indicators, supporting 1,000+ concurrent connections using Socket.io and Redis pub/sub.',
-    image: '/images/projects/collaboration-tool.jpg',
+    image:
+      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80',
     tech: ['React.js', 'Node.js', 'Socket.io', 'MongoDB', 'Redis', 'Docker'],
     metrics: {
       users: '1K+ concurrent',
@@ -79,7 +83,8 @@ export const projects: Project[] = [
     tagline: 'Audio/Video Conferencing',
     description:
       'Engineered a real-time communication system with WebRTC for audio/video chat, supporting 5,000+ concurrent users. Features include screen sharing, chat, and recording capabilities.',
-    image: '/images/projects/webrtc-system.jpg',
+    image:
+      'https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1600&q=80',
     tech: ['React.js', 'WebRTC', 'Node.js', 'Socket.io', 'MongoDB'],
     metrics: {
       users: '5K+ concurrent',
@@ -95,7 +100,8 @@ export const projects: Project[] = [
     tagline: 'Medusa.js Integration',
     description:
       'Integrated Medusa.js e-commerce framework for client solutions, reducing setup complexity by 50% and accelerating deployment by 35%. Built with MERN stack achieving 30% faster load times.',
-    image: '/images/projects/ecommerce.jpg',
+    image:
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80',
     tech: ['React.js', 'Medusa.js', 'Node.js', 'MongoDB', 'Tailwind CSS'],
     metrics: {
       performance: '30% faster loads',
