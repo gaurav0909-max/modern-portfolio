@@ -70,11 +70,12 @@ export default function MarqueeScroll({
 
       <motion.div
         ref={containerRef}
-        className="flex gap-4 will-change-transform"
-        style={{ x }}
+        className="flex gap-4"
+        style={{ x, willChange: 'transform' }}
         onMouseEnter={pauseOnHover ? () => setIsHovered(true) : undefined}
         onMouseLeave={pauseOnHover ? () => setIsHovered(false) : undefined}
         aria-label="skills-marquee"
+        role="region"
       >
         {duplicatedItems.map((item, index) => (
           <div key={`${item.id}-${index}`} className="flex-shrink-0">

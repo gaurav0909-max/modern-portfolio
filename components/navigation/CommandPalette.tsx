@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { cn } from '@/lib/utils';
 
@@ -31,10 +31,68 @@ export function CommandPalette() {
   const [search, setSearch] = useState('');
   const [mounted, setMounted] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Focus trap and auto-focus input when opened
+  useEffect(() => {
+    if (isOpen && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isOpen]);
+
+  // Focus trap: keep focus within palette when open
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleTabKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return;
+
+      const focusableElements = containerRef.current?.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      
+      if (!focusableElements || focusableElements.length === 0) return;
+
+      const firstElement = focusableElements[0] as HTMLElement;
+      const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleTabKey);
+    return () => document.removeEventListener('keydown', handleTabKey);
+  }, [isOpen]);
+
+  const filteredItems = navItems.filter(
+    (item) =>
+      item.label.toLowerCase().includes(search.toLowerCase()) ||
+      item.description.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const handleNavigate = (href: string) => {
+    const element = document.getElementById(href.replace('#', ''));
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false);
+    setSearch('');
+    setSelectedIndex(0);
+  };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -54,10 +112,16 @@ export function CommandPalette() {
 
       // Arrow navigation when open
       if (isOpen) {
+        const currentFilteredItems = navItems.filter(
+          (item) =>
+            item.label.toLowerCase().includes(search.toLowerCase()) ||
+            item.description.toLowerCase().includes(search.toLowerCase())
+        );
+
         if (e.key === 'ArrowDown') {
           e.preventDefault();
           setSelectedIndex((prev) =>
-            prev < filteredItems.length - 1 ? prev + 1 : prev
+            prev < currentFilteredItems.length - 1 ? prev + 1 : prev
           );
         }
         if (e.key === 'ArrowUp') {
@@ -66,8 +130,8 @@ export function CommandPalette() {
         }
         if (e.key === 'Enter') {
           e.preventDefault();
-          if (filteredItems[selectedIndex]) {
-            handleNavigate(filteredItems[selectedIndex].href);
+          if (currentFilteredItems[selectedIndex]) {
+            handleNavigate(currentFilteredItems[selectedIndex].href);
           }
         }
       }
@@ -75,13 +139,7 @@ export function CommandPalette() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, selectedIndex]);
-
-  const filteredItems = navItems.filter(
-    (item) =>
-      item.label.toLowerCase().includes(search.toLowerCase()) ||
-      item.description.toLowerCase().includes(search.toLowerCase())
-  );
+  }, [isOpen, selectedIndex, search]);
 
   const handleNavigate = (href: string) => {
     const element = document.getElementById(href.replace('#', ''));
@@ -96,15 +154,24 @@ export function CommandPalette() {
   if (!mounted || !isOpen) return null;
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-[20vh] px-4 animate-in fade-in duration-200">
+    <div 
+      className="fixed inset-0 z-50 flex items-start justify-center pt-[20vh] px-4 animate-in fade-in duration-200"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Command palette"
+    >
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={() => setIsOpen(false)}
+        aria-hidden="true"
       />
 
       {/* Palette */}
-      <div className="relative w-full max-w-xl bg-background-dark/95 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl overflow-hidden animate-in slide-in-from-top-4 duration-300">
+      <div 
+        ref={containerRef}
+        className="relative w-full max-w-xl bg-background-dark/95 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl overflow-hidden animate-in slide-in-from-top-4 duration-300"
+      >
         {/* Search input */}
         <div className="p-4 border-b border-white/10">
           <div className="flex items-center gap-3">
@@ -122,6 +189,7 @@ export function CommandPalette() {
               />
             </svg>
             <input
+              ref={inputRef}
               type="text"
               placeholder="Search or jump to..."
               value={search}
@@ -130,13 +198,15 @@ export function CommandPalette() {
                 setSelectedIndex(0);
               }}
               className="flex-1 bg-transparent text-text-primary placeholder:text-text-secondary outline-none text-lg"
-              autoFocus
+              aria-label="Search navigation"
+              aria-autocomplete="list"
+              aria-controls="command-palette-results"
             />
           </div>
         </div>
 
         {/* Results */}
-        <div className="max-h-96 overflow-y-auto">
+        <div id="command-palette-results" className="max-h-96 overflow-y-auto" role="listbox" aria-label="Navigation options">
           {filteredItems.length === 0 ? (
             <div className="px-4 py-8 text-center text-text-secondary">
               No results found
@@ -146,6 +216,8 @@ export function CommandPalette() {
               <button
                 key={item.href}
                 onClick={() => handleNavigate(item.href)}
+                role="option"
+                aria-selected={selectedIndex === index}
                 className={cn(
                   'w-full px-4 py-3 flex items-center justify-between text-left transition-colors',
                   selectedIndex === index

@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const sections = [
   { id: 'home', label: 'Home' },
@@ -17,32 +17,8 @@ const sections = [
  * Based on REDESIGN_ADDENDUM.md specifications
  */
 export function ProgressNav() {
-  const [activeSection, setActiveSection] = useState('home');
-
-  useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-50% 0px -50% 0px',
-      threshold: 0,
-    };
-
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    sections.forEach((section) => {
-      const element = document.getElementById(section.id);
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const sectionIds = sections.map((section) => section.id);
+  const activeSection = useIntersectionObserver(sectionIds);
 
   const handleClick = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });

@@ -1,12 +1,23 @@
+import dynamic from 'next/dynamic';
 import HeroNew from '@/components/sections/HeroNew';
 import Projects from '@/components/sections/Projects';
 import About from '@/components/sections/About';
 import Contact from '@/components/sections/Contact';
 import MarqueeScroll from '@/components/ui/MarqueeScroll';
-import DockNavigation from '@/components/navigation/DockNavigation';
-import { CommandPalette } from '@/components/navigation/CommandPalette';
-import { ProgressNav } from '@/components/navigation/ProgressNav';
 import { getMarqueeSkills } from '@/data/skills';
+
+// Lazy load client-only navigation components
+const DockNavigation = dynamic(() => import('@/components/navigation/DockNavigation'), {
+  ssr: false,
+});
+
+const CommandPalette = dynamic(() => import('@/components/navigation/CommandPalette').then(mod => ({ default: mod.CommandPalette })), {
+  ssr: false,
+});
+
+const ProgressNav = dynamic(() => import('@/components/navigation/ProgressNav').then(mod => ({ default: mod.ProgressNav })), {
+  ssr: false,
+});
 
 export default function Home() {
   const skills = getMarqueeSkills();
@@ -17,11 +28,11 @@ export default function Home() {
       <HeroNew />
 
       {/* Tech Stack Marquee */}
-      <section className="py-12 border-y border-white/5">
+      <section className="py-12 border-y border-white/5" aria-label="Technologies">
         <div className="max-w-7xl mx-auto px-6 mb-6">
-          <h3 className="text-center text-text-secondary text-sm uppercase tracking-wider">
+          <h2 className="text-center text-text-secondary text-sm uppercase tracking-wider">
             Technologies I Work With
-          </h3>
+          </h2>
         </div>
         <MarqueeScroll
           items={skills.map((skill) => ({

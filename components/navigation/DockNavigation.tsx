@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiHome, FiFolder, FiUser, FiMail, FiSun, FiMoon } from 'react-icons/fi';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 interface NavItem {
   id: string;
@@ -20,38 +21,14 @@ const navItems: NavItem[] = [
 ];
 
 export default function DockNavigation() {
-  const [activeSection, setActiveSection] = useState('home');
+  const sectionIds = navItems.map((item) => item.id);
+  const activeSection = useIntersectionObserver(sectionIds);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-50% 0px -50% 0px',
-      threshold: 0,
-    };
-
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    navItems.forEach((item) => {
-      const element = document.getElementById(item.id);
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
   }, []);
 
   const handleNavClick = (href: string) => {
