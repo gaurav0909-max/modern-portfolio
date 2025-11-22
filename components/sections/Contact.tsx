@@ -124,20 +124,13 @@ export default function Contact() {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      const result = await response.json();
-
-      if (!response.ok || !result.success) {
-        throw new Error(result.message || 'Failed to send message');
-      }
-
+      // For static export, use mailto link as fallback
+      const subject = encodeURIComponent(data.subject);
+      const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`);
+      const mailtoLink = `mailto:gp67853@gmail.com?subject=${subject}&body=${body}`;
+      
+      window.open(mailtoLink);
+      
       // Form submitted successfully
       setSubmitStatus('success');
       reset();
@@ -145,7 +138,7 @@ export default function Contact() {
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } catch (error) {
-      // Error is handled and displayed to user via UI
+      // Error handling
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
