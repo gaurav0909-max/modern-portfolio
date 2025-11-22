@@ -84,8 +84,8 @@ export default function HeroNew() {
           {/* Left: Narrative Stack (55%) */}
           <div className="lg:col-span-7 space-y-8">
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-2 border border-border">
-              <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-2 border border-border" role="status" aria-label="Available for new opportunities">
+              <div className="w-2 h-2 rounded-full bg-success animate-pulse" aria-hidden="true" />
               <span className="text-sm text-text-secondary font-mono">
                 Available for new opportunities
               </span>
@@ -95,6 +95,7 @@ export default function HeroNew() {
             <h1
               ref={nameRef}
               className="font-display text-display-xl lg:text-display-2xl font-bold text-text-primary"
+              style={{ willChange: 'opacity' }}
             >
               Gaurav Patel
             </h1>
@@ -120,6 +121,7 @@ export default function HeroNew() {
                 size="lg"
                 icon={FiDownload}
                 onClick={downloadResume}
+                aria-label="Download resume PDF"
               >
                 Download Resume
               </Button>
@@ -153,7 +155,7 @@ export default function HeroNew() {
               <div className="absolute inset-0 flex items-center justify-center">
                 {/* Center glow */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-glow-pulse" />
+                  <div className="w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-glow-pulse" style={{ willChange: 'transform, opacity' }} />
                 </div>
 
                 {/* Orbiting elements */}
@@ -171,6 +173,7 @@ export default function HeroNew() {
                         left: item.x,
                         top: item.y,
                         animationDelay: item.delay,
+                        willChange: 'transform',
                       }}
                     >
                       <div className="relative">

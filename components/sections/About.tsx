@@ -121,7 +121,7 @@ const focusAreas = [
 
 export default function About() {
   return (
-    <section id="about" className="py-20 px-6 bg-gradient-to-b from-background-dark via-background-dark/95 to-background-dark">
+    <section id="about" className="py-20 px-6 bg-background dark:bg-gradient-to-b dark:from-background-dark dark:via-background-dark/95 dark:to-background-dark">
       <div className="max-w-6xl mx-auto space-y-16">
         <motion.div
           variants={staggerContainer}
@@ -132,12 +132,12 @@ export default function About() {
         >
           {/* Section Header */}
           <motion.div variants={fadeInUp} className="text-center space-y-5">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.35em] text-white/70">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border/20 bg-surface-1/50 px-4 py-1 text-xs uppercase tracking-[0.35em] text-foreground/70">
               ABOUT
             </span>
             <div className="space-y-4">
               <h2 className="text-4xl md:text-5xl font-bold">
-                <span className="bg-gradient-to-r from-primary via-secondary to-white bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary via-secondary to-foreground bg-clip-text text-transparent">
                   Purpose-driven builder of modern web products
                 </span>
               </h2>
@@ -152,27 +152,27 @@ export default function About() {
             variants={fadeInUp}
             className="grid gap-8 lg:grid-cols-[1.25fr_0.75fr] items-start"
           >
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl">
+            <div className="relative overflow-hidden rounded-3xl border border-border/10 bg-surface-1/40 p-8 backdrop-blur-xl">
               <div className="absolute inset-0 opacity-60" style={{
                 background:
                   'radial-gradient(circle at 20% 20%, rgba(68,38,217,0.25), transparent 45%), radial-gradient(circle at 80% 0%, rgba(61,132,194,0.15), transparent 50%)',
               }} />
               <div className="relative z-10 space-y-6">
-                <p className="text-lg text-white/80 leading-relaxed">
-                  I'm a <span className="text-white font-semibold">Full Stack Engineer</span> crafting scalable experiences across the
+                <p className="text-lg text-foreground/80 leading-relaxed">
+                  I'm a <span className="text-foreground font-semibold">Full Stack Engineer</span> crafting scalable experiences across the
                   <span className="text-secondary font-semibold"> MERN stack</span>. At Nova, I steer end-to-end delivery—from discovery workshops to instrumented releases—while collaborating with product, design, and ops.
                 </p>
-                <p className="text-lg text-white/80 leading-relaxed">
+                <p className="text-lg text-foreground/80 leading-relaxed">
                   Recent work spans <span className="text-primary font-semibold">real-time collaboration tooling</span>, data-heavy analytics, and platform modernisation. I obsess over performance budgets, DX, and measurable impact.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {quickHighlights.map((item) => (
                     <div
                       key={item.label}
-                      className="rounded-2xl border border-white/10 bg-white/5 p-4"
+                      className="rounded-2xl border border-border/15 bg-surface-2/50 p-4"
                     >
-                      <p className="text-xs uppercase tracking-wide text-white/60">{item.label}</p>
-                      <p className="text-base font-semibold text-white">{item.value}</p>
+                      <p className="text-xs uppercase tracking-wide text-foreground/60">{item.label}</p>
+                      <p className="text-base font-semibold text-foreground">{item.value}</p>
                     </div>
                   ))}
                 </div>
@@ -180,19 +180,19 @@ export default function About() {
             </div>
 
             <div className="space-y-4">
-              <p className="text-sm uppercase tracking-[0.2em] text-white/60">Focus Areas</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-foreground/60">Focus Areas</p>
               {focusAreas.map((area) => (
-                <RevealCard key={area.title} className="p-5 border-white/10 bg-white/5">
+                <RevealCard key={area.title} className="p-5 border-border/10 bg-surface-1/50">
                   <div className="flex items-center gap-3 mb-3">
                     <area.icon className="w-6 h-6 text-secondary" />
                     <div>
-                      <p className="text-white font-semibold">{area.title}</p>
-                      <p className="text-white/60 text-sm">{area.description}</p>
+                      <p className="text-foreground font-semibold">{area.title}</p>
+                      <p className="text-foreground/60 text-sm">{area.description}</p>
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {area.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 text-xs rounded-full border border-white/15 text-white/70">
+                      <span key={tag} className="px-3 py-1 text-xs rounded-full border border-border/20 text-foreground/70">
                         {tag}
                       </span>
                     ))}
@@ -210,11 +210,11 @@ export default function About() {
             {stats.map((stat) => (
               <RevealCard
                 key={stat.label}
-                className="p-6 text-center border-white/10 bg-white/5"
+                className="p-6 text-center border-border/10 bg-surface-1/50"
               >
                 <stat.icon className={`w-7 h-7 mx-auto mb-3 ${stat.color}`} />
                 <AnimatedStat value={stat.value} suffix={stat.suffix} className={`text-3xl md:text-4xl ${stat.color}`} />
-                <p className="text-white/70 text-sm mt-1">{stat.label}</p>
+                <p className="text-foreground/70 text-sm mt-1">{stat.label}</p>
               </RevealCard>
             ))}
           </motion.div>
@@ -222,31 +222,31 @@ export default function About() {
           {/* Experience Timeline */}
           <motion.div variants={fadeInUp} className="space-y-8">
             <div className="text-center space-y-2">
-              <p className="text-xs uppercase tracking-[0.3em] text-white/60">Journey</p>
-              <h3 className="text-3xl font-bold text-white">Experience & Impact</h3>
+              <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">Journey</p>
+              <h3 className="text-3xl font-bold text-foreground">Experience & Impact</h3>
             </div>
             <div className="relative pl-4 sm:pl-8">
               <div className="absolute left-1 sm:left-2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-secondary/40 to-transparent" />
               <div className="space-y-6">
                 {experiences.map((exp) => (
-                  <RevealCard key={exp.role} className="p-6 md:p-7 border-white/10 bg-white/4 relative">
+                  <RevealCard key={exp.role} className="p-6 md:p-7 border-border/10 bg-surface-1/40 relative">
                     <span className="absolute -left-3 top-6 h-3 w-3 rounded-full bg-primary shadow-[0_0_15px_rgba(68,38,217,0.6)]" />
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                       <div>
-                        <p className="text-sm uppercase tracking-widest text-white/60">{exp.company}</p>
-                        <h4 className="text-xl font-semibold text-white">{exp.role}</h4>
+                        <p className="text-sm uppercase tracking-widest text-foreground/60">{exp.company}</p>
+                        <h4 className="text-xl font-semibold text-foreground">{exp.role}</h4>
                       </div>
-                      <div className="text-white/60 text-sm md:text-right">
+                      <div className="text-foreground/60 text-sm md:text-right">
                         <p>{exp.period}</p>
                         <p>{exp.location}</p>
                       </div>
                     </div>
-                    <p className="text-white/70 mt-3 mb-4">{exp.description}</p>
+                    <p className="text-foreground/70 mt-3 mb-4">{exp.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {exp.highlights.map((highlight) => (
                         <span
                           key={highlight}
-                          className="px-3 py-1 rounded-full border border-white/15 text-xs text-white/70"
+                          className="px-3 py-1 rounded-full border border-border/20 text-xs text-foreground/70"
                         >
                           {highlight}
                         </span>

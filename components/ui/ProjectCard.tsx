@@ -59,10 +59,12 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
         >
           <Image
             src={project.image}
-            alt={project.title}
+            alt={`${project.title} - ${project.tagline}`}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+            loading={featured ? "eager" : "lazy"}
+            priority={featured}
           />
         </div>
 
@@ -124,6 +126,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
                 href={project.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`View ${project.title} source code on GitHub`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-2 rounded-full border border-border px-5 py-2 text-sm text-text-primary transition hover:border-primary/50"
@@ -137,6 +140,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
                 href={project.links.live}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`View ${project.title} live demo`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-2 rounded-full border border-border px-5 py-2 text-sm text-text-primary transition hover:border-secondary/50"

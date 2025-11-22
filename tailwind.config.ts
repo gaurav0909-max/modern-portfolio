@@ -171,6 +171,7 @@ const config: Config = {
         text: {
           primary: '#131820',
           secondary: '#384961',
+          tertiary: '#64748B',
           reverse: '#fdfdfd',
         },
       },
