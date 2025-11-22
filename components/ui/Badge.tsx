@@ -15,7 +15,7 @@ export function Badge({
   icon
 }: BadgeProps) {
   const variants = {
-    default: 'bg-white/10 text-text-primary border-white/20 hover:bg-white/20 hover:border-white/30',
+    default: 'bg-blue-slate-900/60 text-blue-slate-100 border-blue-slate-700 hover:bg-blue-slate-800/70 hover:border-blue-slate-600',
     primary: 'bg-primary/20 text-primary border-primary/30 hover:bg-primary/30 hover:border-primary/50',
     secondary: 'bg-secondary/20 text-secondary border-secondary/30 hover:bg-secondary/30 hover:border-secondary/50',
     accent: 'bg-accent/20 text-accent border-accent/30 hover:bg-accent/30 hover:border-accent/50',

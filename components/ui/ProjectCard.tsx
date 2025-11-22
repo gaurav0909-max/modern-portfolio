@@ -40,16 +40,16 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
       className="group relative h-full"
     >
       <div
-        className={`relative h-full overflow-hidden rounded-3xl border border-border bg-surface-1/40 p-6 transition-all duration-500
+        className={`relative h-full overflow-hidden rounded-3xl border border-black/10 bg-surface-1/40 p-6 transition-all duration-500
           ${featured ? 'lg:flex lg:gap-10 lg:p-8' : ''}
-          group-hover:border-border-hover group-hover:shadow-glow-sm`}
+          group-hover:border-black/40 group-hover:shadow-glow-sm`}
       >
         {/* Gradient accent inspired by adaptive.ai */}
         <div
           className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           style={{
             background:
-              'radial-gradient(120% 120% at 80% 0%, rgba(139,92,246,0.25), transparent), radial-gradient(80% 80% at 0% 100%, rgba(6,182,212,0.25), transparent)',
+              'linear-gradient(110deg, rgba(15,23,42,0.88) 0%, rgba(36,58,102,0.8) 55%, rgba(68,38,217,0.65) 100%)',
           }}
         />
 
@@ -68,7 +68,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
 
         {/* Content */}
         <div className={`relative flex flex-col ${featured ? 'lg:w-1/2' : ''}`}>
-          <div className="mb-4 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-text-tertiary">
+          <div className="mb-4 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-text-tertiary transition-colors group-hover:text-white/70">
             <span className="h-[1px] w-8 bg-border" />
             {project.tagline}
           </div>
@@ -77,23 +77,23 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
             <h3 className="text-2xl font-semibold text-text-primary transition-colors group-hover:text-white">
               {project.title}
             </h3>
-            <p className="text-sm text-text-secondary leading-relaxed">
+            <p className="text-sm text-text-secondary leading-relaxed transition-colors group-hover:text-white/80">
               {project.description}
             </p>
           </div>
 
           {/* Metrics */}
           {project.metrics && (
-            <div className="mb-5 grid gap-2 text-sm text-text-secondary sm:grid-cols-2">
+            <div className="mb-5 grid gap-2 text-sm text-text-secondary transition-colors group-hover:text-white/80 sm:grid-cols-2">
               {project.metrics.users && (
                 <div className="rounded-2xl border border-border/60 bg-surface-1/60 px-4 py-3">
-                  <p className="text-xs text-text-tertiary">Users</p>
+                  <p className="text-xs text-text-tertiary transition-colors group-hover:text-white/60">Users</p>
                   <p className="text-base font-semibold text-primary">{project.metrics.users}</p>
                 </div>
               )}
               {project.metrics.performance && (
                 <div className="rounded-2xl border border-border/60 bg-surface-1/60 px-4 py-3">
-                  <p className="text-xs text-text-tertiary">Performance</p>
+                  <p className="text-xs text-text-tertiary transition-colors group-hover:text-white/60">Performance</p>
                   <p className="text-base font-semibold text-secondary">
                     {project.metrics.performance}
                   </p>
@@ -101,8 +101,8 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
               )}
               {project.metrics.uptime && (
                 <div className="rounded-2xl border border-border/60 bg-surface-1/60 px-4 py-3">
-                  <p className="text-xs text-text-tertiary">Uptime</p>
-                  <p className="text-base font-semibold text-accent">{project.metrics.uptime}</p>
+                  <p className="text-xs text-text-tertiary transition-colors group-hover:text-white/60">Uptime</p>
+                  <p className="text-base font-semibold text-secondary">{project.metrics.uptime}</p>
                 </div>
               )}
             </div>
@@ -111,7 +111,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
           {/* Tech stack */}
           <div className="mb-6 flex flex-wrap gap-2">
             {project.tech.map((tech) => (
-              <Badge key={tech} variant="accent" className="text-xs font-semibold">
+              <Badge key={tech} variant="secondary" className="text-xs font-semibold">
                 {tech}
               </Badge>
             ))}
@@ -139,7 +139,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 rounded-full bg-gradient-hero/20 px-5 py-2 text-sm font-semibold text-white transition hover:bg-gradient-hero"
+                className="flex items-center gap-2 rounded-full border border-border px-5 py-2 text-sm text-text-primary transition hover:border-secondary/50"
               >
                 <FiExternalLink className="w-4 h-4" />
                 <span className="text-sm">Live Demo</span>
