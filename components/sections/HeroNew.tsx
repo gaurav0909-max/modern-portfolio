@@ -53,7 +53,7 @@ export default function HeroNew() {
   };
 
   const downloadResume = () => {
-    window.open('/Resume (1).pdf', '_blank');
+    window.open('https://drive.google.com/file/d/1uyl3ln8eifxrHdoMOzt5YfBOC_MKp_02/view?usp=sharing', '_blank');
   };
 
   return (
@@ -86,7 +86,7 @@ export default function HeroNew() {
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-2 border border-border" role="status" aria-label="Available for new opportunities">
               <div className="w-2 h-2 rounded-full bg-success animate-pulse" aria-hidden="true" />
-              <span className="text-sm text-text-secondary font-mono">
+              <span className="text-sm text-text-secondary dark:text-text-dark-secondary font-mono">
                 Available for new opportunities
               </span>
             </div>
@@ -94,7 +94,7 @@ export default function HeroNew() {
             {/* Name - Character reveal */}
             <h1
               ref={nameRef}
-              className="font-display text-display-xl lg:text-display-2xl font-bold text-text-primary"
+              className="font-display text-display-xl lg:text-display-2xl font-bold text-text-primary dark:text-white"
               style={{ willChange: 'opacity' }}
             >
               Gaurav Patel
@@ -102,13 +102,13 @@ export default function HeroNew() {
 
             {/* Role - Typed subtitle */}
             <div className="space-y-2">
-              <p className="text-xl lg:text-2xl text-text-secondary">
+              <p className="text-xl lg:text-2xl text-text-secondary dark:text-text-dark-secondary">
                 Product Engineer crafting{' '}
                 <span className="gradient-text font-semibold">
                   resilient full-stack platforms
                 </span>
               </p>
-              <p className="text-lg text-text-tertiary max-w-xl">
+              <p className="text-lg text-text-tertiary dark:text-text-dark-tertiary max-w-xl">
                 Building high-performance applications with React, Next.js, and Node.js.
                 2+ years transforming ideas into scalable products serving 10K+ users.
               </p>
@@ -131,19 +131,19 @@ export default function HeroNew() {
             <div className="flex flex-wrap gap-8 pt-4">
               <div>
                 <div className="text-display-md font-bold gradient-text">2+</div>
-                <div className="text-sm text-text-secondary">Years Experience</div>
+                <div className="text-sm text-text-secondary dark:text-text-dark-secondary">Years Experience</div>
               </div>
               <div>
                 <div className="text-display-md font-bold gradient-text">15+</div>
-                <div className="text-sm text-text-secondary">Projects Shipped</div>
+                <div className="text-sm text-text-secondary dark:text-text-dark-secondary">Projects Shipped</div>
               </div>
               <div>
                 <div className="text-display-md font-bold gradient-text">10K+</div>
-                <div className="text-sm text-text-secondary">Active Users</div>
+                <div className="text-sm text-text-secondary dark:text-text-dark-secondary">Active Users</div>
               </div>
               <div>
                 <div className="text-display-md font-bold gradient-text">99%</div>
-                <div className="text-sm text-text-secondary">Uptime</div>
+                <div className="text-sm text-text-secondary dark:text-text-dark-secondary">Uptime</div>
               </div>
             </div>
           </div>
@@ -192,7 +192,7 @@ export default function HeroNew() {
                     <div className="w-16 h-16 mx-auto rounded-full bg-gradient-hero flex items-center justify-center text-2xl font-bold">
                       GP
                     </div>
-                    <div className="text-sm font-mono text-text-secondary">
+                    <div className="text-sm font-mono text-text-secondary dark:text-text-dark-secondary">
                       Full Stack Engineer
                     </div>
                   </div>
@@ -205,7 +205,7 @@ export default function HeroNew() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2">
-        <span className="text-xs text-text-tertiary font-mono">SCROLL TO EXPLORE</span>
+        <span className="text-xs text-text-tertiary dark:text-text-dark-tertiary font-mono">SCROLL TO EXPLORE</span>
         <div className="w-px h-12 bg-gradient-to-b from-border to-transparent" />
       </div>
     </section>

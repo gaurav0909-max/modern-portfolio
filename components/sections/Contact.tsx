@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { FiMail, FiGithub, FiLinkedin, FiMapPin, FiClock, FiSend, FiCheck, FiCopy } from 'react-icons/fi';
+import { FiMail, FiGithub, FiLinkedin, FiMapPin, FiClock, FiSend, FiCheck, FiCopy, FiTwitter } from 'react-icons/fi';
 import { Button } from '@/components/ui/Button';
 import { RevealCard } from '@/components/ui/RevealCard';
 
@@ -74,6 +74,14 @@ const socialLinks = [
     href: 'https://github.com/gaurav0909-max',
     color: 'from-gray-500 to-gray-700',
     hoverColor: 'group-hover:from-gray-400 group-hover:to-gray-600',
+  },
+  {
+    icon: FiTwitter,
+    label: 'Twitter',
+    username: '@GauravPatel__01',
+    href: 'https://x.com/GauravPatel__01',
+    color: 'from-sky-400 to-sky-600',
+    hoverColor: 'group-hover:from-sky-300 group-hover:to-sky-500',
   },
   {
     icon: FiLinkedin,
@@ -162,12 +170,12 @@ export default function Contact() {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: '-100px' } as any}
           className="space-y-16"
         >
           {/* Section Header */}
           <motion.div variants={fadeInUp} className="text-center space-y-5">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border/20 bg-surface-1/50 px-4 py-1 text-xs uppercase tracking-[0.35em] text-foreground/70 backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 rounded-full border border-gray-400 dark:border-slate-500 bg-surface-1/50 px-4 py-1 text-xs uppercase tracking-[0.35em] text-foreground/70 backdrop-blur-sm">
               LET'S CONNECT
             </span>
             <div className="space-y-4">
@@ -192,7 +200,7 @@ export default function Contact() {
                 {contactMethods.map((method, index) => (
                   <RevealCard
                     key={index}
-                    className="p-5 border-border/10 bg-surface-1/40 group cursor-pointer"
+                    className="p-5 border border-gray-400 dark:border-slate-500 bg-surface-1/40 group cursor-pointer"
                     onClick={method.copyable ? copyEmail : undefined}
                   >
                     <div className="flex items-start gap-4">
@@ -227,7 +235,7 @@ export default function Contact() {
               </div>
 
               {/* Availability Status */}
-              <div className="relative overflow-hidden rounded-3xl border border-border/10 bg-surface-1/40 p-6 backdrop-blur-xl">
+              <div className="relative overflow-hidden rounded-3xl border border-gray-400 dark:border-slate-500 bg-surface-1/40 p-6 backdrop-blur-xl">
                 <div className="absolute inset-0 opacity-60" style={{
                   background: 'radial-gradient(circle at 20% 20%, rgba(68,38,217,0.15), transparent 50%), radial-gradient(circle at 80% 80%, rgba(61,132,194,0.1), transparent 50%)',
                 }} />
@@ -256,14 +264,14 @@ export default function Contact() {
               {/* Social Links */}
               <div className="space-y-4">
                 <p className="text-sm uppercase tracking-[0.2em] text-foreground/60">Connect on Social</p>
-                <div className="grid gap-4">
+                <div className="grid grid-cols-2 gap-4">
                   {socialLinks.map((social, index) => (
                     <a
                       key={index}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative overflow-hidden rounded-2xl border border-border/10 bg-surface-1/40 p-5 transition-all duration-300 hover:shadow-glow-sm"
+                      className="group relative overflow-hidden rounded-2xl border border-gray-400 dark:border-slate-500 bg-surface-1/40 p-5 transition-all duration-300 hover:shadow-glow-sm"
                     >
                       <div className="relative z-10 flex items-center gap-4">
                         <div className={`p-3 rounded-xl bg-gradient-to-br ${social.color} ${social.hoverColor} text-white transition-all duration-300 group-hover:scale-110`}>
@@ -290,7 +298,7 @@ export default function Contact() {
 
             {/* Right Side - Contact Form */}
             <motion.div variants={fadeInUp}>
-              <div className="relative overflow-hidden rounded-3xl border border-border/10 bg-surface-1/40 p-6 md:p-8 backdrop-blur-xl">
+              <div className="relative overflow-hidden rounded-3xl border border-gray-400 dark:border-slate-500 bg-surface-1/40 p-6 md:p-8 backdrop-blur-xl">
                 <div className="absolute inset-0 opacity-60" style={{
                   background: 'radial-gradient(circle at 80% 20%, rgba(68,38,217,0.15), transparent 50%), radial-gradient(circle at 20% 80%, rgba(61,132,194,0.1), transparent 50%)',
                 }} />

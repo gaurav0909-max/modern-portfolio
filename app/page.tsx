@@ -7,17 +7,11 @@ import MarqueeScroll from '@/components/ui/MarqueeScroll';
 import { getMarqueeSkills } from '@/data/skills';
 
 // Lazy load client-only navigation components
-const DockNavigation = dynamic(() => import('@/components/navigation/DockNavigation'), {
-  ssr: false,
-});
+const CommandPalette = dynamic(() => import('@/components/navigation/CommandPalette').then(mod => ({ default: mod.CommandPalette })));
 
-const CommandPalette = dynamic(() => import('@/components/navigation/CommandPalette').then(mod => ({ default: mod.CommandPalette })), {
-  ssr: false,
-});
+const ProgressNav = dynamic(() => import('@/components/navigation/ProgressNav').then(mod => ({ default: mod.ProgressNav })));
 
-const ProgressNav = dynamic(() => import('@/components/navigation/ProgressNav').then(mod => ({ default: mod.ProgressNav })), {
-  ssr: false,
-});
+const FloatingDock = dynamic(() => import('@/components/navigation/FloatingDock'));
 
 export default function Home() {
   const skills = getMarqueeSkills();
@@ -28,7 +22,7 @@ export default function Home() {
       <HeroNew />
 
       {/* Tech Stack Marquee */}
-      <section className="py-12 border-y border-white/5" aria-label="Technologies">
+      <section className="py-12 border-y border-white/5 bg-background dark:bg-gradient-to-b dark:from-background-dark dark:via-background-dark/95 dark:to-background-dark" aria-label="Technologies">
         <div className="max-w-7xl mx-auto px-6 mb-6">
           <h2 className="text-center text-text-secondary text-sm uppercase tracking-wider">
             Technologies I Work With
@@ -54,14 +48,14 @@ export default function Home() {
       {/* Contact Section */}
       <Contact />
 
-      {/* Dock Navigation */}
-      <DockNavigation />
-
       {/* Command Palette (Cmd+K) */}
       <CommandPalette />
 
       {/* Progress Navigation */}
       <ProgressNav />
+
+      {/* Floating Dock */}
+      <FloatingDock />
     </main>
   );
 }

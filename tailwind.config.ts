@@ -173,6 +173,9 @@ const config: Config = {
           secondary: '#384961',
           tertiary: '#64748B',
           reverse: '#fdfdfd',
+          'dark-primary': '#F8FAFC',
+          'dark-secondary': '#CBD5E1',
+          'dark-tertiary': '#94A3B8',
         },
       },
       fontFamily: {

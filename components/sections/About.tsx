@@ -132,7 +132,7 @@ export default function About() {
         >
           {/* Section Header */}
           <motion.div variants={fadeInUp} className="text-center space-y-5">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border/20 bg-surface-1/50 px-4 py-1 text-xs uppercase tracking-[0.35em] text-foreground/70">
+            <span className="inline-flex items-center gap-2 rounded-full border border-gray-400 dark:border-slate-500 bg-surface-1/50 px-4 py-1 text-xs uppercase tracking-[0.35em] text-foreground/70">
               ABOUT
             </span>
             <div className="space-y-4">
@@ -152,7 +152,7 @@ export default function About() {
             variants={fadeInUp}
             className="grid gap-8 lg:grid-cols-[1.25fr_0.75fr] items-start"
           >
-            <div className="relative overflow-hidden rounded-3xl border border-border/10 bg-surface-1/40 p-8 backdrop-blur-xl">
+            <div className="relative overflow-hidden rounded-3xl border border-gray-400 dark:border-slate-500 bg-surface-1/40 p-8 backdrop-blur-xl">
               <div className="absolute inset-0 opacity-60" style={{
                 background:
                   'radial-gradient(circle at 20% 20%, rgba(68,38,217,0.25), transparent 45%), radial-gradient(circle at 80% 0%, rgba(61,132,194,0.15), transparent 50%)',
@@ -169,7 +169,7 @@ export default function About() {
                   {quickHighlights.map((item) => (
                     <div
                       key={item.label}
-                      className="rounded-2xl border border-border/15 bg-surface-2/50 p-4"
+                      className="rounded-2xl border border-gray-400 dark:border-slate-500 bg-surface-2/50 p-4"
                     >
                       <p className="text-xs uppercase tracking-wide text-foreground/60">{item.label}</p>
                       <p className="text-base font-semibold text-foreground">{item.value}</p>
@@ -182,7 +182,7 @@ export default function About() {
             <div className="space-y-4">
               <p className="text-sm uppercase tracking-[0.2em] text-foreground/60">Focus Areas</p>
               {focusAreas.map((area) => (
-                <RevealCard key={area.title} className="p-5 border-border/10 bg-surface-1/50">
+                <RevealCard key={area.title} className="p-5 border border-gray-400 dark:border-slate-500 bg-surface-1/50">
                   <div className="flex items-center gap-3 mb-3">
                     <area.icon className="w-6 h-6 text-secondary" />
                     <div>
@@ -192,7 +192,7 @@ export default function About() {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {area.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 text-xs rounded-full border border-border/20 text-foreground/70">
+                      <span key={tag} className="px-3 py-1 text-xs rounded-full border border-gray-400 dark:border-slate-500 text-foreground/70">
                         {tag}
                       </span>
                     ))}
@@ -210,7 +210,7 @@ export default function About() {
             {stats.map((stat) => (
               <RevealCard
                 key={stat.label}
-                className="p-6 text-center border-border/10 bg-surface-1/50"
+                className="p-6 text-center border border-gray-400 dark:border-slate-500 bg-surface-1/50"
               >
                 <stat.icon className={`w-7 h-7 mx-auto mb-3 ${stat.color}`} />
                 <AnimatedStat value={stat.value} suffix={stat.suffix} className={`text-3xl md:text-4xl ${stat.color}`} />
@@ -229,7 +229,7 @@ export default function About() {
               <div className="absolute left-1 sm:left-2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-secondary/40 to-transparent" />
               <div className="space-y-6">
                 {experiences.map((exp) => (
-                  <RevealCard key={exp.role} className="p-6 md:p-7 border-border/10 bg-surface-1/40 relative">
+                  <RevealCard key={exp.role} className="p-6 md:p-7 border border-gray-400 dark:border-slate-500 bg-surface-1/40 relative">
                     <span className="absolute -left-3 top-6 h-3 w-3 rounded-full bg-primary shadow-[0_0_15px_rgba(68,38,217,0.6)]" />
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                       <div>
@@ -246,7 +246,7 @@ export default function About() {
                       {exp.highlights.map((highlight) => (
                         <span
                           key={highlight}
-                          className="px-3 py-1 rounded-full border border-border/20 text-xs text-foreground/70"
+                          className="px-3 py-1 rounded-full border border-gray-400 dark:border-slate-500 text-xs text-foreground/70"
                         >
                           {highlight}
                         </span>

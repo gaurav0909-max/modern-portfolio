@@ -9,6 +9,7 @@ interface RevealCardProps {
   className?: string;
   glowColor?: string;
   glowSize?: number;
+  onClick?: () => void;
 }
 
 /**
@@ -20,6 +21,7 @@ export function RevealCard({
   className,
   glowColor = 'rgba(113, 60, 188, 0.15)',
   glowSize = 600,
+  onClick,
 }: RevealCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -39,6 +41,7 @@ export function RevealCard({
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
+      onClick={onClick}
       className={cn(
         'relative group p-6 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 overflow-hidden',
         className

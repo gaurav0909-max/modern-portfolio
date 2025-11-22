@@ -60,24 +60,6 @@ export const projects: Project[] = [
     },
   },
   {
-    id: 'realtime-collaboration',
-    title: 'Real-Time Collaboration Tool',
-    tagline: 'Team Communication Platform',
-    description:
-      'Built a real-time team collaboration platform with instant messaging, file sharing, and presence indicators, supporting 1,000+ concurrent connections using Socket.io and Redis pub/sub.',
-    image:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80',
-    tech: ['React.js', 'Node.js', 'Socket.io', 'MongoDB', 'Redis', 'Docker'],
-    metrics: {
-      users: '1K+ concurrent',
-      uptime: '99.8%',
-    },
-    links: {
-      github: 'https://github.com/gaurav0909-max',
-      live: '#',
-    },
-  },
-  {
     id: 'webrtc-communication',
     title: 'WebRTC Communication System',
     tagline: 'Audio/Video Conferencing',

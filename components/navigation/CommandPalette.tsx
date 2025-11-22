@@ -141,16 +141,6 @@ export function CommandPalette() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, selectedIndex, search]);
 
-  const handleNavigate = (href: string) => {
-    const element = document.getElementById(href.replace('#', ''));
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsOpen(false);
-    setSearch('');
-    setSelectedIndex(0);
-  };
-
   if (!mounted || !isOpen) return null;
 
   return createPortal(
