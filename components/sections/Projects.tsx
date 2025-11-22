@@ -18,7 +18,7 @@ export default function Projects() {
   const regularProjects = getRegularProjects();
 
   return (
-    <section id="projects" className="py-20 px-6">
+    <section id="projects" className="py-20 px-6 bg-background dark:bg-gradient-to-b dark:from-background-dark dark:via-background-dark/95 dark:to-background-dark">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -31,7 +31,7 @@ export default function Projects() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="gradient-text">Featured Projects</span>
           </h2>
-          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+          <p className="text-text-secondary dark:text-text-dark-secondary text-lg max-w-2xl mx-auto">
             A collection of projects that showcase my skills in building scalable,
             user-friendly applications with modern technologies.
           </p>
@@ -61,7 +61,7 @@ export default function Projects() {
             variants={fadeInUp}
             className="text-center py-12"
           >
-            <p className="text-text-secondary text-lg">No projects to display at the moment.</p>
+            <p className="text-text-secondary dark:text-text-dark-secondary text-lg">No projects to display at the moment.</p>
           </motion.div>
         )}
       </div>

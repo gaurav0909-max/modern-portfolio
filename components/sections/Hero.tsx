@@ -44,23 +44,26 @@ export default function Hero() {
   };
 
   const downloadResume = () => {
-    // Resume link - using the actual PDF file
-    window.open('/Resume (1).pdf', '_blank');
+    // Resume link - using Google Drive link
+    window.open('https://drive.google.com/file/d/1uyl3ln8eifxrHdoMOzt5YfBOC_MKp_02/view?usp=sharing', '_blank');
   };
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-6 py-20"
+      className="relative min-h-screen flex items-center justify-center px-6 py-20 bg-background dark:bg-gradient-to-b dark:from-background-dark dark:via-background-dark/95 dark:to-background-dark"
     >
-      {/* Grid background */}
-      <GridBackground />
+      {/* Background effects container */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Grid background */}
+        <GridBackground />
 
-      {/* Background gradient effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+        {/* Background gradient effects */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+        </div>
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto w-full">

@@ -11,6 +11,7 @@ export interface Project {
   tagline: string;
   description: string;
   image: string;
+  video?: string;
   tech: string[];
   metrics?: {
     users?: string;
@@ -40,16 +41,15 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
       className="group relative h-full"
     >
       <div
-        className={`relative h-full overflow-hidden rounded-3xl border border-black/10 bg-surface-1/40 p-6 transition-all duration-500
+        className={`relative h-full overflow-hidden rounded-3xl border border-gray-400 dark:border-slate-500 bg-surface-1/40 p-6 transition-all duration-500
           ${featured ? 'lg:flex lg:gap-10 lg:p-8' : ''}
-          group-hover:border-black/40 group-hover:shadow-glow-sm`}
+          group-hover:border-slate-400 dark:group-hover:border-slate-400 group-hover:bg-slate-50/50 dark:group-hover:bg-slate-900/20 group-hover:shadow-lg`}
       >
-        {/* Gradient accent inspired by adaptive.ai */}
+        {/* Subtle slate overlay on hover */}
         <div
           className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           style={{
-            background:
-              'linear-gradient(110deg, rgba(15,23,42,0.88) 0%, rgba(36,58,102,0.8) 55%, rgba(68,38,217,0.65) 100%)',
+            background: 'rgba(148, 163, 184, 0.05)',
           }}
         />
 
@@ -70,40 +70,40 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
 
         {/* Content */}
         <div className={`relative flex flex-col ${featured ? 'lg:w-1/2' : ''}`}>
-          <div className="mb-4 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-text-tertiary transition-colors group-hover:text-white/70">
-            <span className="h-[1px] w-8 bg-border" />
+          <div className="mb-4 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-text-tertiary dark:text-text-dark-tertiary transition-colors group-hover:text-slate-600 dark:group-hover:text-slate-400">
+            <span className="h-[1px] w-8 bg-border dark:bg-white/30 transition-colors group-hover:bg-slate-400 dark:group-hover:bg-slate-600" />
             {project.tagline}
           </div>
 
           <div className="mb-4 space-y-3">
-            <h3 className="text-2xl font-semibold text-text-primary transition-colors group-hover:text-white">
+            <h3 className="text-2xl font-semibold text-text-primary dark:text-white transition-colors group-hover:text-slate-800 dark:group-hover:text-slate-200">
               {project.title}
             </h3>
-            <p className="text-sm text-text-secondary leading-relaxed transition-colors group-hover:text-white/80">
+            <p className="text-sm text-text-secondary dark:text-text-dark-secondary leading-relaxed transition-colors group-hover:text-slate-600 dark:group-hover:text-slate-400">
               {project.description}
             </p>
           </div>
 
           {/* Metrics */}
           {project.metrics && (
-            <div className="mb-5 grid gap-2 text-sm text-text-secondary transition-colors group-hover:text-white/80 sm:grid-cols-2">
+            <div className="mb-5 grid gap-2 text-sm text-text-secondary dark:text-text-dark-secondary transition-colors group-hover:text-slate-600 dark:group-hover:text-slate-400 sm:grid-cols-2">
               {project.metrics.users && (
-                <div className="rounded-2xl border border-border/60 bg-surface-1/60 px-4 py-3">
-                  <p className="text-xs text-text-tertiary transition-colors group-hover:text-white/60">Users</p>
+                <div className="rounded-2xl border border-border/60 dark:border-white/15 bg-surface-1/60 px-4 py-3">
+                  <p className="text-xs text-text-tertiary dark:text-text-dark-tertiary transition-colors group-hover:text-slate-500 dark:group-hover:text-slate-500">Users</p>
                   <p className="text-base font-semibold text-primary">{project.metrics.users}</p>
                 </div>
               )}
               {project.metrics.performance && (
-                <div className="rounded-2xl border border-border/60 bg-surface-1/60 px-4 py-3">
-                  <p className="text-xs text-text-tertiary transition-colors group-hover:text-white/60">Performance</p>
+                <div className="rounded-2xl border border-border/60 dark:border-white/15 bg-surface-1/60 px-4 py-3">
+                  <p className="text-xs text-text-tertiary dark:text-text-dark-tertiary transition-colors group-hover:text-slate-500 dark:group-hover:text-slate-500">Performance</p>
                   <p className="text-base font-semibold text-secondary">
                     {project.metrics.performance}
                   </p>
                 </div>
               )}
               {project.metrics.uptime && (
-                <div className="rounded-2xl border border-border/60 bg-surface-1/60 px-4 py-3">
-                  <p className="text-xs text-text-tertiary transition-colors group-hover:text-white/60">Uptime</p>
+                <div className="rounded-2xl border border-border/60 dark:border-white/15 bg-surface-1/60 px-4 py-3">
+                  <p className="text-xs text-text-tertiary dark:text-text-dark-tertiary transition-colors group-hover:text-slate-500 dark:group-hover:text-slate-500">Uptime</p>
                   <p className="text-base font-semibold text-secondary">{project.metrics.uptime}</p>
                 </div>
               )}
@@ -129,7 +129,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
                 aria-label={`View ${project.title} source code on GitHub`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 rounded-full border border-border px-5 py-2 text-sm text-text-primary transition hover:border-primary/50"
+                className="flex items-center gap-2 rounded-full border border-gray-400 dark:border-slate-500 px-5 py-2 text-sm text-text-primary dark:text-white transition hover:border-slate-400 hover:bg-slate-50 dark:hover:border-slate-400 dark:hover:bg-slate-800/50"
               >
                 <FiGithub className="w-4 h-4" />
                 <span className="text-sm">Code</span>
@@ -143,7 +143,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
                 aria-label={`View ${project.title} live demo`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 rounded-full border border-border px-5 py-2 text-sm text-text-primary transition hover:border-secondary/50"
+                className="flex items-center gap-2 rounded-full border border-gray-400 dark:border-slate-500 px-5 py-2 text-sm text-text-primary dark:text-white transition hover:border-slate-400 hover:bg-slate-50 dark:hover:border-slate-400 dark:hover:bg-slate-800/50"
               >
                 <FiExternalLink className="w-4 h-4" />
                 <span className="text-sm">Live Demo</span>
