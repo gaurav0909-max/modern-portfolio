@@ -45,15 +45,18 @@ export const metadata: Metadata = {
     description: 'Building high-performance, scalable applications with modern web technologies',
     images: ['/og-image.png'],
   },
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#fcf3f8' },
-    { media: '(prefers-color-scheme: dark)', color: '#0d1117' },
-  ],
-  viewport: {
+}
+
+export function generateViewport() {
+  return {
     width: 'device-width',
     initialScale: 1,
     maximumScale: 5,
-  },
+    themeColor: [
+      { media: '(prefers-color-scheme: light)', color: '#fcf3f8' },
+      { media: '(prefers-color-scheme: dark)', color: '#0d1117' },
+    ],
+  }
 }
 
 export default function RootLayout({
