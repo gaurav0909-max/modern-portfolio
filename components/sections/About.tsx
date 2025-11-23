@@ -59,7 +59,7 @@ const stats = [
 const experiences = [
   {
     company: 'Nova (Startup)',
-    role: 'Product Engineer II',
+    role: 'Software Developer II',
     period: 'Sep 2025 - Present',
     location: 'Mumbai, India',
     description:
@@ -86,7 +86,7 @@ const experiences = [
 ]
 
 const quickHighlights = [
-  { label: 'Current Role', value: 'Product Engineer II · Nova' },
+  { label: 'Current Role', value: 'Software Developer II · Nova' },
   { label: 'Stack', value: 'Next.js · Node.js · PostgreSQL' },
   { label: 'Location', value: 'Mumbai, India' },
   { label: 'Focus', value: 'MERN · Platform Engineering' },
@@ -95,7 +95,7 @@ const quickHighlights = [
 const focusAreas = [
   {
     icon: FiCode,
-    title: 'Product Engineering',
+    title: 'Software Development',
     description: 'Owning feature lifecycles end-to-end — from UX flows and APIs to observability and rollout.',
     tags: ['Next.js', 'Node.js', 'Design Systems'],
   },

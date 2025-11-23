@@ -243,7 +243,7 @@ export default function Contact() {
                   <p className="text-foreground/70 leading-relaxed">
                     Open to remote or Mumbai-based full-time roles as a{' '}
                     <span className="text-primary font-semibold">Full Stack Engineer</span>,{' '}
-                    <span className="text-secondary font-semibold">Product Engineer</span>, or{' '}
+                    <span className="text-secondary font-semibold">Software Developer</span>, or{' '}
                     <span className="text-primary font-semibold">MERN Stack Developer</span>
                   </p>
                   <div className="mt-4 pt-4 border-t border-border/10">

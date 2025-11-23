@@ -4,6 +4,7 @@ import './globals.css'
 import { ThemeProvider } from 'next-themes'
 import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvider'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
+import MobileNav from '@/components/navigation/MobileNav'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -29,19 +30,19 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://example.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Gaurav Patel - Product Engineer | MERN Stack Developer',
+  title: 'Gaurav Patel - Software Developer | MERN Stack Developer',
   description: 'Full Stack Engineer with 2+ years of experience building high-performance applications using React.js, Next.js, Node.js, and TypeScript. Specialized in creating scalable web solutions.',
-  keywords: ['full-stack developer', 'mern stack', 'react', 'nextjs', 'nodejs', 'typescript', 'product engineer', 'gaurav patel', 'web developer', 'javascript', 'portfolio'],
+  keywords: ['full-stack developer', 'mern stack', 'react', 'nextjs', 'nodejs', 'typescript', 'software developer', 'gaurav patel', 'web developer', 'javascript', 'portfolio'],
   authors: [{ name: 'Gaurav Patel' }],
   openGraph: {
-    title: 'Gaurav Patel - Product Engineer | MERN Stack Developer',
+    title: 'Gaurav Patel - Software Developer | MERN Stack Developer',
     description: 'Building high-performance, scalable applications with React, Next.js, and Node.js',
     type: 'website',
     images: ['/og-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Gaurav Patel - Product Engineer',
+    title: 'Gaurav Patel - Software Developer',
     description: 'Building high-performance, scalable applications with modern web technologies',
     images: ['/og-image.png'],
   },
@@ -76,6 +77,7 @@ export default function RootLayout({
         </a>
         <ErrorBoundary>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+            <MobileNav />
             <SmoothScrollProvider>
               {children}
             </SmoothScrollProvider>
