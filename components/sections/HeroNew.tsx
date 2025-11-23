@@ -7,7 +7,7 @@ import gsap from 'gsap';
 import { useReducedMotion } from '@/hooks/animations/useReducedMotion';
 
 const roles = [
-  'Product Engineer',
+  'Software Developer',
   'MERN Stack Developer',
   'React Specialist',
   'Full-Stack Engineer',
@@ -81,8 +81,8 @@ export default function HeroNew() {
 
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left: Narrative Stack (55%) */}
-          <div className="lg:col-span-7 space-y-8">
+          {/* Left: Narrative Stack (55% on desktop, full width on mobile) */}
+          <div className="lg:col-span-7 space-y-6 lg:space-y-8">
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-2 border border-border" role="status" aria-label="Available for new opportunities">
               <div className="w-2 h-2 rounded-full bg-success animate-pulse" aria-hidden="true" />
@@ -103,7 +103,7 @@ export default function HeroNew() {
             {/* Role - Typed subtitle */}
             <div className="space-y-2">
               <p className="text-xl lg:text-2xl text-text-secondary dark:text-text-dark-secondary">
-                Product Engineer crafting{' '}
+                Software Developer crafting{' '}
                 <span className="gradient-text font-semibold">
                   resilient full-stack platforms
                 </span>
@@ -148,14 +148,14 @@ export default function HeroNew() {
             </div>
           </div>
 
-          {/* Right: Animated Canvas (45%) */}
+          {/* Right: Animated Canvas (45% on desktop, smaller on mobile/tablet) */}
           <div className="lg:col-span-5 relative">
-            <div className="relative aspect-square max-w-md mx-auto">
+            <div className="relative aspect-square w-64 sm:w-80 md:max-w-sm lg:max-w-md mx-auto">
               {/* Floating tech glyphs */}
               <div className="absolute inset-0 flex items-center justify-center">
-                {/* Center glow */}
+                {/* Center glow - responsive sizing */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-glow-pulse" style={{ willChange: 'transform, opacity' }} />
+                  <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 bg-primary/20 rounded-full blur-3xl animate-glow-pulse" style={{ willChange: 'transform, opacity' }} />
                 </div>
 
                 {/* Orbiting elements */}
@@ -168,7 +168,7 @@ export default function HeroNew() {
                   ].map((item, i) => (
                     <div
                       key={i}
-                      className="absolute w-16 h-16 flex items-center justify-center text-3xl animate-float"
+                      className="absolute w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 flex items-center justify-center text-2xl sm:text-3xl animate-float"
                       style={{
                         left: item.x,
                         top: item.y,
@@ -178,7 +178,7 @@ export default function HeroNew() {
                     >
                       <div className="relative">
                         <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl" />
-                        <div className="relative surface-card p-3">
+                        <div className="relative surface-card p-2 sm:p-3">
                           {item.icon}
                         </div>
                       </div>
@@ -186,13 +186,13 @@ export default function HeroNew() {
                   ))}
                 </div>
 
-                {/* Center badge */}
+                {/* Center badge - responsive sizing */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="surface-card p-8 text-center space-y-2">
-                    <div className="w-16 h-16 mx-auto rounded-full bg-gradient-hero flex items-center justify-center text-2xl font-bold">
+                  <div className="surface-card p-4 sm:p-6 lg:p-8 text-center space-y-2">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto rounded-full bg-gradient-hero flex items-center justify-center text-lg sm:text-xl lg:text-2xl font-bold">
                       GP
                     </div>
-                    <div className="text-sm font-mono text-text-secondary dark:text-text-dark-secondary">
+                    <div className="text-xs sm:text-sm font-mono text-text-secondary dark:text-text-dark-secondary">
                       Full Stack Engineer
                     </div>
                   </div>
@@ -203,10 +203,10 @@ export default function HeroNew() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2">
-        <span className="text-xs text-text-tertiary dark:text-text-dark-tertiary font-mono">SCROLL TO EXPLORE</span>
-        <div className="w-px h-12 bg-gradient-to-b from-border to-transparent" />
+      {/* Scroll indicator - visible on all screens */}
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <span className="text-xs text-text-tertiary dark:text-text-dark-tertiary font-mono hidden sm:block">SCROLL TO EXPLORE</span>
+        <div className="w-px h-8 sm:h-12 bg-gradient-to-b from-border to-transparent" />
       </div>
     </section>
   );

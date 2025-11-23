@@ -9,7 +9,7 @@ import { GridBackground } from '@/components/backgrounds/GridBackground';
 import { TextReveal } from '@/components/animations/TextReveal';
 
 const roles = [
-  'Product Engineer',
+  'Software Developer',
   'MERN Stack Developer',
   'React Specialist',
   'Full-Stack Engineer',
