@@ -414,7 +414,7 @@ export default function Contact() {
                     {/* Submit Button */}
                     <Button
                       type="submit"
-                      variant="primary"
+                      variant="glass"
                       size="lg"
                       icon={FiSend}
                       className="w-full"
