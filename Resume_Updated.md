@@ -2,7 +2,7 @@
 **Full Stack Engineer | MERN Stack Specialist | Product-Focused Developer**
 
 Ahmedabad, India
-📞 +91 9106651984 | ✉️ gp67853@gmail.com
+📞 +91 9106651984 | ✉️ [gp627853@gmail.com](mailto:gp627853@gmail.com)
 🔗 [github.com/gaurav0909-max](https://github.com/gaurav0909-max) | 💼 [linkedin.com/in/gaurav-patel-webdev](https://linkedin.com/in/gaurav-patel-webdev)
 
 ---

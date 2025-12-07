@@ -43,7 +43,7 @@ const contactMethods = [
   {
     icon: FiMail,
     label: 'Email',
-    value: 'gp67853@gmail.com',
+    value: 'gp627853@gmail.com',
     action: 'Copy email',
     copyable: true,
     color: 'text-primary',
@@ -94,8 +94,8 @@ const socialLinks = [
   {
     icon: FiMail,
     label: 'Email',
-    username: 'gp67853@gmail.com',
-    href: 'mailto:gp67853@gmail.com',
+    username: 'gp627853@gmail.com',
+    href: 'mailto:gp627853@gmail.com',
     color: 'from-primary to-primary-dark',
     hoverColor: 'group-hover:from-primary-light group-hover:to-primary',
   },
@@ -127,7 +127,7 @@ export default function Contact() {
       // For static export, use mailto link as fallback
       const subject = encodeURIComponent(data.subject);
       const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`);
-      const mailtoLink = `mailto:gp67853@gmail.com?subject=${subject}&body=${body}`;
+      const mailtoLink = `mailto:gp627853@gmail.com?subject=${subject}&body=${body}`;
       
       window.open(mailtoLink);
       
@@ -147,7 +147,7 @@ export default function Contact() {
 
   const copyEmail = async () => {
     try {
-      await navigator.clipboard.writeText('gp67853@gmail.com');
+      await navigator.clipboard.writeText('gp627853@gmail.com');
       setCopiedEmail(true);
       setTimeout(() => setCopiedEmail(false), 2000);
     } catch (err) {
@@ -440,7 +440,7 @@ export default function Contact() {
                         animate={{ opacity: 1, y: 0 }}
                         className="p-4 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-400"
                       >
-                        <p className="text-sm">Failed to send message. Please try again or email me directly at gp67853@gmail.com</p>
+                        <p className="text-sm">Failed to send message. Please try again or email me directly at gp627853@gmail.com</p>
                       </motion.div>
                     )}
                   </form>
