@@ -41,8 +41,8 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
       className="group relative h-full"
     >
       <div
-        className={`relative h-full overflow-hidden rounded-3xl border border-gray-400 dark:border-slate-500 bg-surface-1/40 p-6 transition-all duration-500
-          ${featured ? 'lg:flex lg:gap-10 lg:p-8' : ''}
+        className={`relative h-full overflow-hidden rounded-3xl border border-gray-400 dark:border-slate-500 bg-surface-1/40 p-7 shadow-sm dark:shadow-none transition-all duration-500
+          ${featured ? 'lg:flex lg:gap-10 lg:p-9' : ''}
           group-hover:border-slate-400 dark:group-hover:border-slate-400 group-hover:bg-slate-50/50 dark:group-hover:bg-slate-900/20 group-hover:shadow-lg`}
       >
         {/* Subtle slate overlay on hover */}
@@ -55,7 +55,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
 
         {/* Image/Video container */}
         <div
-          className={`relative overflow-hidden rounded-2xl bg-background-elevated shadow-inner-glow ${featured ? 'lg:w-1/2' : 'aspect-video mb-6'}`}
+          className={`relative overflow-hidden rounded-2xl bg-background-elevated shadow-inner-glow ${featured ? 'lg:w-1/2' : 'aspect-video mb-5'}`}
         >
           <Image
             src={project.image}

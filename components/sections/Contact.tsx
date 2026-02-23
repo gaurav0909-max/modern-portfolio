@@ -149,8 +149,8 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 px-6 bg-background dark:bg-gradient-to-b dark:from-background-dark dark:via-background-dark/95 dark:to-background-dark">
-      <div className="max-w-6xl mx-auto">
+    <section id="contact" className="pt-32 pb-32 px-6 sm:px-10 lg:px-12">
+      <div className="max-w-2xl">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -159,24 +159,13 @@ export default function Contact() {
           className="space-y-16"
         >
           {/* Section Header */}
-          <motion.div variants={fadeInUp} className="text-center space-y-5">
-            <span className="inline-flex items-center gap-2 rounded-full border border-gray-400 dark:border-slate-500 bg-surface-1/50 px-4 py-1 text-xs uppercase tracking-[0.35em] text-foreground/70 backdrop-blur-sm">
-              LET'S CONNECT
-            </span>
-            <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-                <span className="bg-gradient-to-r from-primary via-secondary to-foreground bg-clip-text text-transparent">
-                  Ready to Build Something Amazing?
-                </span>
-              </h2>
-              <p className="text-text-secondary text-lg md:text-xl max-w-3xl mx-auto">
-                Have a project in mind or looking to collaborate? I am always open to new opportunities and great conversations.
-              </p>
-            </div>
+          <motion.div variants={fadeInUp} className="space-y-2">
+            <p className="text-xs uppercase tracking-widest text-foreground/40">Contact</p>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">Get in Touch</h2>
           </motion.div>
 
           {/* Main Content - Split Layout */}
-          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 items-start">
+          <div className="flex flex-col gap-10">
             {/* Left Side - Contact Info & Social */}
             <motion.div variants={fadeInUp} className="space-y-8">
               {/* Contact Methods */}
@@ -184,7 +173,7 @@ export default function Contact() {
                 {contactMethods.map((method, index) => (
                   <RevealCard
                     key={index}
-                    className="p-5 border border-gray-400 dark:border-slate-500 bg-surface-1/40 group cursor-pointer"
+                    className="p-6 border border-gray-400 dark:border-slate-500 bg-surface-1/40 shadow-sm dark:shadow-none group cursor-pointer"
                     onClick={method.copyable ? copyEmail : undefined}
                   >
                     <div className="flex items-start gap-4">
@@ -219,7 +208,7 @@ export default function Contact() {
               </div>
 
               {/* Availability Status */}
-              <div className="relative overflow-hidden rounded-3xl border border-gray-400 dark:border-slate-500 bg-surface-1/40 p-6 backdrop-blur-xl">
+              <div className="relative overflow-hidden rounded-3xl border border-gray-400 dark:border-slate-500 bg-surface-1/40 p-8 backdrop-blur-xl shadow-sm dark:shadow-none">
                 <div className="absolute inset-0 opacity-60" style={{
                   background: 'radial-gradient(circle at 20% 20%, rgba(68,38,217,0.15), transparent 50%), radial-gradient(circle at 80% 80%, rgba(61,132,194,0.1), transparent 50%)',
                 }} />
@@ -247,7 +236,7 @@ export default function Contact() {
 
               {/* Social Links */}
               <div className="space-y-4">
-                <p className="text-sm uppercase tracking-[0.2em] text-foreground/60">Connect on Social</p>
+                <p className="text-xs uppercase tracking-widest text-foreground/40">Connect on Social</p>
                 <div className="grid grid-cols-2 gap-4">
                   {socialLinks.map((social, index) => (
                     <a
@@ -255,7 +244,7 @@ export default function Contact() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative overflow-hidden rounded-2xl border border-gray-400 dark:border-slate-500 bg-surface-1/40 p-5 transition-all duration-300 hover:shadow-glow-sm"
+                      className="group relative overflow-hidden rounded-2xl border border-gray-400 dark:border-slate-500 bg-surface-1/40 p-6 shadow-sm dark:shadow-none transition-all duration-300 hover:shadow-glow-sm"
                     >
                       <div className="relative z-10 flex items-center gap-4">
                         <div className={`p-3 rounded-xl bg-gradient-to-br ${social.color} ${social.hoverColor} text-white transition-all duration-300 group-hover:scale-110`}>
@@ -282,7 +271,7 @@ export default function Contact() {
 
             {/* Right Side - Contact Form */}
             <motion.div variants={fadeInUp}>
-              <div className="relative overflow-hidden rounded-3xl border border-gray-400 dark:border-slate-500 bg-surface-1/40 p-6 md:p-8 backdrop-blur-xl">
+              <div className="relative overflow-hidden rounded-3xl border border-gray-400 dark:border-slate-500 bg-surface-1/40 p-8 md:p-10 backdrop-blur-xl shadow-sm dark:shadow-none">
                 <div className="absolute inset-0 opacity-60" style={{
                   background: 'radial-gradient(circle at 80% 20%, rgba(68,38,217,0.15), transparent 50%), radial-gradient(circle at 20% 80%, rgba(61,132,194,0.1), transparent 50%)',
                 }} />

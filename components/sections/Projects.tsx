@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import ProjectCard from '@/components/ui/ProjectCard';
-import { projects, getFeaturedProjects, getRegularProjects } from '@/data/projects';
+import { getFeaturedProjects, getRegularProjects } from '@/data/projects';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -18,28 +18,23 @@ export default function Projects() {
   const regularProjects = getRegularProjects();
 
   return (
-    <section id="projects" className="py-20 px-6 bg-background dark:bg-gradient-to-b dark:from-background-dark dark:via-background-dark/95 dark:to-background-dark">
-      <div className="max-w-7xl mx-auto">
+    <section id="projects" className="pt-32 pb-32 px-6 sm:px-10 lg:px-12">
+      <div className="max-w-2xl">
         {/* Section header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           variants={fadeInUp}
-          className="text-center mb-16"
+          className="mb-12 space-y-2"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-text">Featured Projects</span>
-          </h2>
-          <p className="text-text-secondary dark:text-text-dark-secondary text-lg max-w-2xl mx-auto">
-            A collection of projects that showcase my skills in building scalable,
-            user-friendly applications with modern technologies.
-          </p>
+          <p className="text-xs uppercase tracking-widest text-foreground/40">Projects</p>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">Selected Work</h2>
         </motion.div>
 
         {/* Featured project */}
         {featuredProjects.length > 0 && (
-          <div className="mb-12 space-y-8">
+          <div className="mb-16 space-y-10">
             {featuredProjects.map((project) => (
               <ProjectCard key={project.id} project={project} featured />
             ))}
@@ -48,7 +43,7 @@ export default function Projects() {
 
         {/* Projects grid */}
         {regularProjects.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {regularProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}

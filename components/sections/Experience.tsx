@@ -47,53 +47,47 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="py-20 px-6 bg-background dark:bg-gradient-to-b dark:from-background-dark dark:via-background-dark/95 dark:to-background-dark"
+      className="pt-32 pb-32 px-6 sm:px-10 lg:px-12"
     >
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-2xl">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="space-y-12"
+          className="space-y-14"
         >
           {/* Header */}
-          <motion.div variants={fadeInUp} className="space-y-3">
-            <span className="inline-flex items-center gap-2 rounded-full border border-gray-400 dark:border-slate-500 bg-surface-1/50 px-4 py-1 text-xs uppercase tracking-[0.35em] text-foreground/70">
-              Journey
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold">
-              <span className="bg-gradient-to-r from-primary via-secondary to-foreground bg-clip-text text-transparent">
-                Experience & Impact
-              </span>
-            </h2>
+          <motion.div variants={fadeInUp} className="space-y-2">
+            <p className="text-xs uppercase tracking-widest text-foreground/40">Experience</p>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">Work History</h2>
           </motion.div>
 
           {/* Timeline */}
           <motion.div variants={fadeInUp} className="relative pl-4 sm:pl-8">
             <div className="absolute left-1 sm:left-2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-secondary/40 to-transparent" />
-            <div className="space-y-6">
+            <div className="space-y-8">
               {experiences.map((exp) => (
                 <RevealCard
                   key={exp.role}
-                  className="p-6 md:p-7 border border-gray-400 dark:border-slate-500 bg-surface-1/40"
+                  className="p-7 md:p-8 border border-gray-400 dark:border-slate-500 bg-surface-1/40 shadow-sm dark:shadow-none"
                 >
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                     <div>
-                      <p className="text-sm uppercase tracking-widest text-foreground/60">{exp.company}</p>
+                      <p className="text-xs uppercase tracking-widest text-foreground/40 mb-1">{exp.company}</p>
                       <h4 className="text-xl font-semibold text-foreground">{exp.role}</h4>
                     </div>
-                    <div className="text-foreground/60 text-sm md:text-right shrink-0">
+                    <div className="text-foreground/50 text-sm md:text-right shrink-0 leading-relaxed">
                       <p>{exp.period}</p>
                       <p>{exp.location}</p>
                     </div>
                   </div>
-                  <p className="text-foreground/70 mt-3 mb-4">{exp.description}</p>
+                  <p className="text-foreground/70 mb-5 leading-relaxed">{exp.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {exp.highlights.map((highlight) => (
                       <span
                         key={highlight}
-                        className="px-3 py-1 rounded-full border border-gray-400 dark:border-slate-500 text-xs text-foreground/70"
+                        className="px-3 py-1 rounded-full border border-gray-400 dark:border-slate-500 text-xs font-medium text-foreground/60"
                       >
                         {highlight}
                       </span>
