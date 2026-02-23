@@ -92,8 +92,8 @@ const focusAreas = [
 
 export default function About() {
   return (
-    <section id="about" className="py-20 px-6 bg-background dark:bg-gradient-to-b dark:from-background-dark dark:via-background-dark/95 dark:to-background-dark">
-      <div className="max-w-6xl mx-auto space-y-16">
+    <section id="about" className="pt-32 pb-32 px-6 sm:px-10 lg:px-12">
+      <div className="max-w-2xl space-y-12">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -102,28 +102,17 @@ export default function About() {
           className="space-y-16"
         >
           {/* Section Header */}
-          <motion.div variants={fadeInUp} className="text-center space-y-5">
-            <span className="inline-flex items-center gap-2 rounded-full border border-gray-400 dark:border-slate-500 bg-surface-1/50 px-4 py-1 text-xs uppercase tracking-[0.35em] text-foreground/70">
-              ABOUT
-            </span>
-            <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold">
-                <span className="bg-gradient-to-r from-primary via-secondary to-foreground bg-clip-text text-transparent">
-                  Purpose-driven builder of modern web products
-                </span>
-              </h2>
-              <p className="text-text-secondary text-lg md:text-xl max-w-3xl mx-auto">
-                I connect product thinking with engineering execution—shipping resilient platforms that scale, load fast, and feel crafted.
-              </p>
-            </div>
+          <motion.div variants={fadeInUp} className="space-y-2">
+            <p className="text-xs uppercase tracking-widest text-foreground/40">About</p>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">About Me</h2>
           </motion.div>
 
           {/* Bio + Focus Areas */}
           <motion.div
             variants={fadeInUp}
-            className="grid gap-8 lg:grid-cols-[1.25fr_0.75fr] items-start"
+            className="flex flex-col gap-8"
           >
-            <div className="relative overflow-hidden rounded-3xl border border-gray-400 dark:border-slate-500 bg-surface-1/40 p-8 backdrop-blur-xl">
+            <div className="relative overflow-hidden rounded-3xl border border-gray-400 dark:border-slate-500 bg-surface-1/40 p-10 backdrop-blur-xl shadow-sm dark:shadow-none">
               <div className="absolute inset-0 opacity-60" style={{
                 background:
                   'radial-gradient(circle at 20% 20%, rgba(68,38,217,0.25), transparent 45%), radial-gradient(circle at 80% 0%, rgba(61,132,194,0.15), transparent 50%)',
@@ -140,9 +129,9 @@ export default function About() {
                   {quickHighlights.map((item) => (
                     <div
                       key={item.label}
-                      className="rounded-2xl border border-gray-400 dark:border-slate-500 bg-surface-2/50 p-4"
+                      className="rounded-2xl border border-gray-400 dark:border-slate-500 bg-surface-2/50 p-5"
                     >
-                      <p className="text-xs uppercase tracking-wide text-foreground/60">{item.label}</p>
+                      <p className="text-xs uppercase tracking-wide text-foreground/60 mb-1">{item.label}</p>
                       <p className="text-base font-semibold text-foreground">{item.value}</p>
                     </div>
                   ))}
@@ -151,14 +140,16 @@ export default function About() {
             </div>
 
             <div className="space-y-4">
-              <p className="text-sm uppercase tracking-[0.2em] text-foreground/60">Focus Areas</p>
+              <p className="text-xs uppercase tracking-widest text-foreground/40">Focus Areas</p>
               {focusAreas.map((area) => (
-                <RevealCard key={area.title} className="p-5 border border-gray-400 dark:border-slate-500 bg-surface-1/50">
-                  <div className="flex items-center gap-3 mb-3">
-                    <area.icon className="w-6 h-6 text-secondary" />
+                <RevealCard key={area.title} className="p-6 border border-gray-400 dark:border-slate-500 bg-surface-1/50 shadow-sm dark:shadow-none">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="mt-0.5 shrink-0">
+                      <area.icon className="w-5 h-5 text-secondary" />
+                    </div>
                     <div>
-                      <p className="text-foreground font-semibold">{area.title}</p>
-                      <p className="text-foreground/60 text-sm">{area.description}</p>
+                      <p className="text-foreground font-semibold mb-1">{area.title}</p>
+                      <p className="text-foreground/60 text-sm leading-relaxed">{area.description}</p>
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-2">
@@ -181,11 +172,11 @@ export default function About() {
             {stats.map((stat) => (
               <RevealCard
                 key={stat.label}
-                className="p-6 text-center border border-gray-400 dark:border-slate-500 bg-surface-1/50"
+                className="p-7 text-center border border-gray-400 dark:border-slate-500 bg-surface-1/50 shadow-sm dark:shadow-none"
               >
-                <stat.icon className={`w-7 h-7 mx-auto mb-3 ${stat.color}`} />
+                <stat.icon className={`w-6 h-6 mx-auto mb-4 ${stat.color}`} />
                 <AnimatedStat value={stat.value} suffix={stat.suffix} className={`text-3xl md:text-4xl ${stat.color}`} />
-                <p className="text-foreground/70 text-sm mt-1">{stat.label}</p>
+                <p className="text-foreground/60 text-sm mt-2">{stat.label}</p>
               </RevealCard>
             ))}
           </motion.div>

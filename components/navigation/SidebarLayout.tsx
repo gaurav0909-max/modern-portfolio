@@ -24,7 +24,7 @@ export default function SidebarLayout({ children }: { children: React.ReactNode 
     { rootMargin: '-40% 0px -55% 0px' }
   );
 
-  const containerRef = useRef<HTMLDivElement>(null);
+  const mainRef = useRef<HTMLElement>(null);
   const [mouse, setMouse] = useState({ x: -9999, y: -9999 });
 
   useEffect(() => {
@@ -34,14 +34,18 @@ export default function SidebarLayout({ children }: { children: React.ReactNode 
   }, []);
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById(id);
+    if (!el) return;
+    const container = mainRef.current;
+    if (container) {
+      container.scrollTo({ top: el.offsetTop, behavior: 'smooth' });
+    } else {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <div
-      ref={containerRef}
-      className="relative min-h-screen lg:flex lg:gap-0"
-    >
+    <div className="relative min-h-screen lg:flex lg:gap-0">
       {/* Cursor spotlight overlay */}
       <div
         className="pointer-events-none fixed inset-0 z-30"
@@ -50,36 +54,35 @@ export default function SidebarLayout({ children }: { children: React.ReactNode 
         }}
         aria-hidden="true"
       />
+
       {/* ── Left sticky panel ── */}
-      <aside className="lg:sticky lg:top-0 lg:h-screen lg:w-[42%] xl:w-[40%] flex flex-col justify-between px-8 py-16 lg:py-20">
-        {/* Top: identity */}
+      <aside className="lg:sticky lg:top-0 lg:h-screen lg:w-[44%] xl:w-[42%] flex flex-col justify-between px-6 py-12 lg:px-10 lg:py-20 xl:px-14">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-6"
+          className="space-y-8"
         >
           <div>
-            <h1 className="text-4xl xl:text-5xl font-bold tracking-tight text-foreground">
+            <h1 className="text-5xl xl:text-6xl font-bold tracking-tight text-foreground">
               Gaurav Patel
             </h1>
-            <p className="mt-2 text-lg font-medium text-primary">
+            <p className="mt-3 text-xl font-medium text-primary">
               Full Stack Engineer
             </p>
-            <p className="mt-3 text-base text-foreground/60 max-w-xs leading-relaxed">
+            <p className="mt-4 text-base text-foreground/60 max-w-sm leading-relaxed">
               Building scalable, high-performance web products that feel crafted.
             </p>
           </div>
 
-          {/* Section nav */}
-          <nav className="mt-8 space-y-1" aria-label="On-page navigation">
+          <nav className="space-y-2" aria-label="On-page navigation">
             {NAV_ITEMS.map((item) => {
               const isActive = activeSection === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
-                  className="group flex items-center gap-4 w-full text-left py-1"
+                  className="group flex items-center gap-4 w-full text-left py-1.5"
                   aria-current={isActive ? 'location' : undefined}
                 >
                   <span
@@ -104,12 +107,11 @@ export default function SidebarLayout({ children }: { children: React.ReactNode 
           </nav>
         </motion.div>
 
-        {/* Bottom: socials */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex items-center gap-5"
+          className="flex items-center gap-6"
         >
           {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
             <a
@@ -128,8 +130,9 @@ export default function SidebarLayout({ children }: { children: React.ReactNode 
 
       {/* ── Right scrollable panel ── */}
       <main
+        ref={mainRef}
         id="main-content"
-        className="flex-1 lg:w-[58%] xl:w-[60%]"
+        className="flex-1 lg:w-[56%] xl:w-[58%] lg:h-screen lg:overflow-y-auto"
       >
         {children}
       </main>
