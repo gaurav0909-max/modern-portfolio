@@ -87,24 +87,6 @@
     }
   }
 
-  /* Thin scrollbar for the right scrollable panel */
-  #main-content::-webkit-scrollbar {
-    width: 3px;
-  }
-
-  #main-content::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  #main-content::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.12);
-    border-radius: 2px;
-  }
-
-  .dark #main-content::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.08);
-  }
-
   /* Focus indicators for keyboard navigation */
   *:focus-visible {
     outline: 2px solid rgb(68, 38, 217);
