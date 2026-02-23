@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -24,7 +24,6 @@ export default function SidebarLayout({ children }: { children: React.ReactNode 
     { rootMargin: '-40% 0px -55% 0px' }
   );
 
-  const mainRef = useRef<HTMLElement>(null);
   const [mouse, setMouse] = useState({ x: -9999, y: -9999 });
 
   useEffect(() => {
@@ -36,12 +35,7 @@ export default function SidebarLayout({ children }: { children: React.ReactNode 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
-    const container = mainRef.current;
-    if (container) {
-      container.scrollTo({ top: el.offsetTop, behavior: 'smooth' });
-    } else {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
@@ -128,11 +122,10 @@ export default function SidebarLayout({ children }: { children: React.ReactNode 
         </motion.div>
       </aside>
 
-      {/* ── Right scrollable panel ── */}
+      {/* ── Right content panel ── */}
       <main
-        ref={mainRef}
         id="main-content"
-        className="flex-1 lg:w-[56%] xl:w-[58%] lg:h-screen lg:overflow-y-auto"
+        className="flex-1 lg:w-[56%] xl:w-[58%]"
       >
         {children}
       </main>
