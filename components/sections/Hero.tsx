@@ -101,7 +101,7 @@ export default function Hero() {
             variants={fadeInUp}
             className="text-lg md:text-xl text-text-secondary max-w-2xl mb-8 lg:mx-0 mx-auto"
           >
-            Building high-performance, scalable applications with 2+ years of experience
+            Building high-performance, scalable applications with 3+ years of experience
             in React.js, Next.js, and Node.js. Passionate about creating exceptional
             user experiences and solving complex technical challenges.
           </motion.p>

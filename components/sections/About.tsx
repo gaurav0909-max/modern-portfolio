@@ -28,7 +28,7 @@ const staggerContainer = {
 const stats = [
   {
     icon: FiBriefcase,
-    value: 2,
+    value: 3,
     suffix: '+',
     label: 'Years Experience',
     color: 'text-primary',
@@ -53,35 +53,6 @@ const stats = [
     suffix: '%',
     label: 'Uptime Maintained',
     color: 'text-secondary',
-  },
-]
-
-const experiences = [
-  {
-    company: 'Nova (Startup)',
-    role: 'Software Developer II',
-    period: 'Sep 2025 - Present',
-    location: 'Mumbai, India',
-    description:
-      'Leading frontend and platform initiatives for collaborative analytics products with React, Nest.js, and PostgreSQL.',
-    highlights: ['25% faster feature rollouts', '10K+ active users', 'Design system adoption'],
-  },
-  {
-    company: 'Spaceo Technologies Pvt. Ltd.',
-    role: 'Full Stack Developer',
-    period: 'May 2025 - Aug 2025',
-    location: 'Ahmedabad, India',
-    description:
-      'Delivered production-grade SaaS experiences using React, Node.js, and MongoDB with an obsession for Core Web Vitals.',
-    highlights: ['99% uptime', '20% performance boost', '18% lower bounce rate'],
-  },
-  {
-    company: 'IT Path Solutions Pvt. Ltd.',
-    role: 'Associate Technology Architect',
-    period: 'Aug 2023 - Apr 2025',
-    location: 'Ahmedabad, India',
-    description: 'Architected and shipped 15+ full-stack builds with Firebase, Next.js, Docker, and real-time features.',
-    highlights: ['WebRTC for 5K+ users', '35% faster deployments', 'Mentored 8+ developers'],
   },
 ]
 
@@ -219,44 +190,6 @@ export default function About() {
             ))}
           </motion.div>
 
-          {/* Experience Timeline */}
-          <motion.div variants={fadeInUp} className="space-y-8">
-            <div className="text-center space-y-2">
-              <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">Journey</p>
-              <h3 className="text-3xl font-bold text-foreground">Experience & Impact</h3>
-            </div>
-            <div className="relative pl-4 sm:pl-8">
-              <div className="absolute left-1 sm:left-2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-secondary/40 to-transparent" />
-              <div className="space-y-6">
-                {experiences.map((exp) => (
-                  <RevealCard key={exp.role} className="p-6 md:p-7 border border-gray-400 dark:border-slate-500 bg-surface-1/40 relative">
-                    <span className="absolute -left-3 top-6 h-3 w-3 rounded-full bg-primary shadow-[0_0_15px_rgba(68,38,217,0.6)]" />
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                      <div>
-                        <p className="text-sm uppercase tracking-widest text-foreground/60">{exp.company}</p>
-                        <h4 className="text-xl font-semibold text-foreground">{exp.role}</h4>
-                      </div>
-                      <div className="text-foreground/60 text-sm md:text-right">
-                        <p>{exp.period}</p>
-                        <p>{exp.location}</p>
-                      </div>
-                    </div>
-                    <p className="text-foreground/70 mt-3 mb-4">{exp.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.highlights.map((highlight) => (
-                        <span
-                          key={highlight}
-                          className="px-3 py-1 rounded-full border border-gray-400 dark:border-slate-500 text-xs text-foreground/70"
-                        >
-                          {highlight}
-                        </span>
-                      ))}
-                    </div>
-                  </RevealCard>
-                ))}
-              </div>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

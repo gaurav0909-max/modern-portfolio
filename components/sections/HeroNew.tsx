@@ -110,7 +110,7 @@ export default function HeroNew() {
               </p>
               <p className="text-lg text-text-tertiary dark:text-text-dark-tertiary max-w-xl">
                 Building high-performance applications with React, Next.js, and Node.js.
-                2+ years transforming ideas into scalable products serving 10K+ users.
+                3+ years transforming ideas into scalable products serving 10K+ users.
               </p>
             </div>
 
@@ -130,7 +130,7 @@ export default function HeroNew() {
             {/* Trust signals */}
             <div className="flex flex-wrap gap-8 pt-4">
               <div>
-                <div className="text-display-md font-bold gradient-text">2+</div>
+                <div className="text-display-md font-bold gradient-text">3+</div>
                 <div className="text-sm text-text-secondary dark:text-text-dark-secondary">Years Experience</div>
               </div>
               <div>
