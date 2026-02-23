@@ -31,7 +31,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://example.com'
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Gaurav Patel - Software Developer | MERN Stack Developer',
-  description: 'Full Stack Engineer with 2+ years of experience building high-performance applications using React.js, Next.js, Node.js, and TypeScript. Specialized in creating scalable web solutions.',
+  description: 'Full Stack Engineer with 3+ years of experience building high-performance applications using React.js, Next.js, Node.js, and TypeScript. Specialized in creating scalable web solutions.',
   keywords: ['full-stack developer', 'mern stack', 'react', 'nextjs', 'nodejs', 'typescript', 'software developer', 'gaurav patel', 'web developer', 'javascript', 'portfolio'],
   authors: [{ name: 'Gaurav Patel' }],
   openGraph: {

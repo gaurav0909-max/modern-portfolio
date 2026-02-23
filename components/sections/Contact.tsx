@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { FiMail, FiGithub, FiLinkedin, FiMapPin, FiClock, FiSend, FiCheck, FiCopy, FiTwitter } from 'react-icons/fi';
+import { FiMail, FiGithub, FiLinkedin, FiMapPin, FiClock, FiSend, FiCheck, FiCopy } from 'react-icons/fi';
 import { Button } from '@/components/ui/Button';
 import { RevealCard } from '@/components/ui/RevealCard';
 
@@ -74,14 +74,6 @@ const socialLinks = [
     href: 'https://github.com/gaurav0909-max',
     color: 'from-gray-500 to-gray-700',
     hoverColor: 'group-hover:from-gray-400 group-hover:to-gray-600',
-  },
-  {
-    icon: FiTwitter,
-    label: 'Twitter',
-    username: '@GauravPatel__01',
-    href: 'https://x.com/GauravPatel__01',
-    color: 'from-sky-400 to-sky-600',
-    hoverColor: 'group-hover:from-sky-300 group-hover:to-sky-500',
   },
   {
     icon: FiLinkedin,
@@ -178,18 +170,17 @@ export default function Contact() {
                 </span>
               </h2>
               <p className="text-text-secondary text-lg md:text-xl max-w-3xl mx-auto">
-                Whether you have a project in mind, want to collaborate, or just want to say hi — I'd love to hear from you.
+                Have a project in mind or looking to collaborate? I am always open to new opportunities and great conversations.
               </p>
             </div>
           </motion.div>
 
           {/* Main Content - Split Layout */}
-          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12">
+          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 items-start">
             {/* Left Side - Contact Info & Social */}
             <motion.div variants={fadeInUp} className="space-y-8">
               {/* Contact Methods */}
               <div className="space-y-4">
-                <p className="text-sm uppercase tracking-[0.2em] text-foreground/60">Contact Methods</p>
                 {contactMethods.map((method, index) => (
                   <RevealCard
                     key={index}
@@ -242,8 +233,8 @@ export default function Contact() {
                   </div>
                   <p className="text-foreground/70 leading-relaxed">
                     Open to remote or Mumbai-based full-time roles as a{' '}
-                    <span className="text-primary font-semibold">Full Stack Engineer</span>,{' '}
-                    <span className="text-secondary font-semibold">Software Developer</span>, or{' '}
+                    <span className="text-primary font-semibold">Frontend Developer</span>,{' '}
+                    <span className="text-secondary font-semibold">Backend Developer</span>, or{' '}
                     <span className="text-primary font-semibold">MERN Stack Developer</span>
                   </p>
                   <div className="mt-4 pt-4 border-t border-border/10">
