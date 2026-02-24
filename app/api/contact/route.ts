@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { z } from 'zod';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const schema = z.object({
   name: z.string().min(2).max(100),
   email: z.string().email(),
@@ -55,6 +53,7 @@ export async function POST(req: NextRequest) {
 
   const { name, email, subject, message } = result.data;
 
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const { error } = await resend.emails.send({
     from: process.env.RESEND_FROM_EMAIL ?? 'Portfolio <onboarding@resend.dev>',
     to: 'gp627853@gmail.com',
