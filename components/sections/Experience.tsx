@@ -47,7 +47,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="pt-16 pb-16 sm:pt-24 sm:pb-24 lg:pt-32 lg:pb-32 px-6 sm:px-8 lg:px-12"
+      className="pt-16 pb-12 sm:pt-20 sm:pb-14 lg:pt-20 lg:pb-14 px-6 sm:px-8 lg:px-12"
     >
       <div className="max-w-2xl">
         <motion.div
@@ -58,9 +58,10 @@ export default function Experience() {
           className="space-y-14"
         >
           {/* Header */}
-          <motion.div variants={fadeInUp} className="space-y-2">
+          <motion.div variants={fadeInUp} className="space-y-3">
             <p className="text-xs uppercase tracking-widest text-text-tertiary">Experience</p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary">Work History</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-text-primary">Work History</h2>
+            <p className="text-base text-text-secondary leading-relaxed">Three years of building things that (mostly) didn't break.</p>
           </motion.div>
 
           {/* Timeline */}

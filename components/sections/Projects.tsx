@@ -18,7 +18,7 @@ export default function Projects() {
   const regularProjects = getRegularProjects();
 
   return (
-    <section id="projects" className="pt-16 pb-16 sm:pt-24 sm:pb-24 lg:pt-32 lg:pb-32 px-6 sm:px-10 lg:px-12">
+    <section id="projects" className="pt-16 pb-12 sm:pt-20 sm:pb-14 lg:pt-20 lg:pb-14 px-6 sm:px-10 lg:px-12">
       <div className="max-w-2xl lg:max-w-3xl">
         {/* Section header */}
         <motion.div
@@ -26,10 +26,11 @@ export default function Projects() {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           variants={fadeInUp}
-          className="mb-12 space-y-2"
+          className="mb-12 space-y-3"
         >
           <p className="text-xs uppercase tracking-widest text-text-tertiary">Projects</p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary">Selected Work</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-text-primary">Selected Work</h2>
+          <p className="text-base text-text-secondary leading-relaxed">Things I built when I probably should've been sleeping.</p>
         </motion.div>
 
         {/* Featured project */}
