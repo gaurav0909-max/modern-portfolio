@@ -147,7 +147,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="pt-16 pb-16 sm:pt-24 sm:pb-24 lg:pt-32 lg:pb-32 px-6 sm:px-10 lg:px-12">
+    <section id="contact" className="pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-20 lg:pb-24 px-6 sm:px-10 lg:px-12">
       <div className="max-w-2xl lg:max-w-3xl">
         <motion.div
           variants={staggerContainer}
@@ -157,9 +157,10 @@ export default function Contact() {
           className="space-y-16"
         >
           {/* Section Header */}
-          <motion.div variants={fadeInUp} className="space-y-2">
+          <motion.div variants={fadeInUp} className="space-y-3">
             <p className="text-xs uppercase tracking-widest text-text-tertiary">Contact</p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary">Get in Touch</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-text-primary">Get in Touch</h2>
+            <p className="text-base text-text-secondary leading-relaxed">Drop a line. I read every message — yes, really.</p>
           </motion.div>
 
           {/* Main Content */}

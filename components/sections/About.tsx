@@ -92,7 +92,7 @@ const focusAreas = [
 
 export default function About() {
   return (
-    <section id="about" className="pt-16 pb-16 sm:pt-24 sm:pb-24 lg:pt-32 lg:pb-32 px-6 sm:px-8 lg:px-12">
+    <section id="about" className="pt-16 pb-12 sm:pt-20 sm:pb-14 lg:pt-20 lg:pb-14 px-6 sm:px-8 lg:px-12">
       <div className="max-w-2xl space-y-12">
         <motion.div
           variants={staggerContainer}
@@ -102,9 +102,10 @@ export default function About() {
           className="space-y-16"
         >
           {/* Section Header */}
-          <motion.div variants={fadeInUp} className="space-y-2">
+          <motion.div variants={fadeInUp} className="space-y-3">
             <p className="text-xs uppercase tracking-widest text-text-tertiary">About</p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary">About Me</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-text-primary">About Me</h2>
+            <p className="text-base text-text-secondary leading-relaxed">Code, coffee, and an obsession with shipping things that matter.</p>
           </motion.div>
 
           {/* Bio + Focus Areas */}
