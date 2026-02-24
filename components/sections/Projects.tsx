@@ -18,8 +18,8 @@ export default function Projects() {
   const regularProjects = getRegularProjects();
 
   return (
-    <section id="projects" className="pt-32 pb-32 px-6 sm:px-10 lg:px-12">
-      <div className="max-w-2xl">
+    <section id="projects" className="pt-16 pb-16 sm:pt-24 sm:pb-24 lg:pt-32 lg:pb-32 px-6 sm:px-10 lg:px-12">
+      <div className="max-w-2xl lg:max-w-3xl">
         {/* Section header */}
         <motion.div
           initial="hidden"
@@ -28,13 +28,13 @@ export default function Projects() {
           variants={fadeInUp}
           className="mb-12 space-y-2"
         >
-          <p className="text-xs uppercase tracking-widest text-foreground/40">Projects</p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">Selected Work</h2>
+          <p className="text-xs uppercase tracking-widest text-text-tertiary">Projects</p>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary">Selected Work</h2>
         </motion.div>
 
         {/* Featured project */}
         {featuredProjects.length > 0 && (
-          <div className="mb-16 space-y-10">
+          <div className="project-card-container mb-16 space-y-10">
             {featuredProjects.map((project) => (
               <ProjectCard key={project.id} project={project} featured />
             ))}
@@ -43,7 +43,7 @@ export default function Projects() {
 
         {/* Projects grid */}
         {regularProjects.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="project-card-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {regularProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
@@ -56,7 +56,7 @@ export default function Projects() {
             variants={fadeInUp}
             className="text-center py-12"
           >
-            <p className="text-text-secondary dark:text-text-dark-secondary text-lg">No projects to display at the moment.</p>
+            <p className="text-text-secondary text-lg">No projects to display at the moment.</p>
           </motion.div>
         )}
       </div>

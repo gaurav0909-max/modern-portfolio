@@ -41,21 +41,21 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
       className="group relative h-full"
     >
       <div
-        className={`relative h-full overflow-hidden rounded-3xl border border-gray-400 dark:border-slate-500 bg-surface-1/40 p-7 shadow-sm dark:shadow-none transition-all duration-500
-          ${featured ? 'lg:flex lg:gap-10 lg:p-9' : ''}
-          group-hover:border-slate-400 dark:group-hover:border-slate-400 group-hover:bg-slate-50/50 dark:group-hover:bg-slate-900/20 group-hover:shadow-lg`}
+        className={`relative h-full overflow-hidden rounded-xl border border-border bg-white p-7 shadow-card transition-all duration-500
+          ${featured ? 'lg:flex lg:gap-10 lg:p-10' : ''}
+          group-hover:border-border-accent group-hover:bg-background-elevated group-hover:shadow-card-hover group-hover:-translate-y-0.5`}
       >
-        {/* Subtle slate overlay on hover */}
+        {/* Subtle primary overlay on hover */}
         <div
           className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           style={{
-            background: 'rgba(148, 163, 184, 0.05)',
+            background: 'rgba(77, 178, 179, 0.04)',
           }}
         />
 
         {/* Image/Video container */}
         <div
-          className={`relative overflow-hidden rounded-2xl bg-background-elevated shadow-inner-glow ${featured ? 'lg:w-1/2' : 'aspect-video mb-5'}`}
+          className={`relative overflow-hidden rounded-xl bg-background-elevated ${featured ? 'lg:w-1/2' : 'aspect-[16/9] mb-6'}`}
         >
           <Image
             src={project.image}
@@ -71,17 +71,17 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
         {/* Content */}
         <div className={`relative flex flex-col ${featured ? 'lg:w-1/2' : ''}`}>
           {/* Tagline - Fixed height */}
-          <div className="mb-4 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-text-tertiary dark:text-text-dark-tertiary transition-colors group-hover:text-slate-600 dark:group-hover:text-slate-400 h-4">
-            <span className="h-[1px] w-8 bg-border dark:bg-white/30 transition-colors group-hover:bg-slate-400 dark:group-hover:bg-slate-600" />
+          <div className="mb-4 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-text-tertiary h-4">
+            <span className="h-[1px] w-8 bg-primary/40" />
             <span className="truncate">{project.tagline}</span>
           </div>
 
           {/* Title and Description - Fixed height */}
-          <div className="mb-4 space-y-3">
-            <h3 className="text-2xl font-semibold text-text-primary dark:text-white transition-colors group-hover:text-slate-800 dark:group-hover:text-slate-200 line-clamp-1">
+          <div className="mb-5 space-y-3">
+            <h3 className="text-2xl font-semibold text-text-primary line-clamp-1">
               {project.title}
             </h3>
-            <p className="text-sm text-text-secondary dark:text-text-dark-secondary leading-relaxed transition-colors group-hover:text-slate-600 dark:group-hover:text-slate-400 line-clamp-3 h-[4.5rem]">
+            <p className="text-sm text-text-secondary leading-relaxed line-clamp-3 h-[4.5rem]">
               {project.description}
             </p>
           </div>
@@ -89,25 +89,25 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
           {/* Metrics - Fixed height */}
           <div className="mb-5 h-20">
             {project.metrics && (
-              <div className="grid gap-2 text-sm text-text-secondary dark:text-text-dark-secondary transition-colors group-hover:text-slate-600 dark:group-hover:text-slate-400 sm:grid-cols-2 h-full">
+              <div className="grid gap-2 text-sm sm:grid-cols-2 h-full">
                 {project.metrics.users && (
-                  <div className="rounded-2xl border border-border/60 dark:border-white/15 bg-surface-1/60 px-4 py-2 flex flex-col justify-center">
-                    <p className="text-xs text-text-tertiary dark:text-text-dark-tertiary transition-colors group-hover:text-slate-500 dark:group-hover:text-slate-500">Users</p>
+                  <div className="rounded-xl border border-border border-l-2 border-l-primary/30 bg-background-elevated px-4 py-2 flex flex-col justify-center">
+                    <p className="text-xs text-text-tertiary">Users</p>
                     <p className="text-base font-semibold text-primary truncate">{project.metrics.users}</p>
                   </div>
                 )}
                 {project.metrics.performance && (
-                  <div className="rounded-2xl border border-border/60 dark:border-white/15 bg-surface-1/60 px-4 py-2 flex flex-col justify-center">
-                    <p className="text-xs text-text-tertiary dark:text-text-dark-tertiary transition-colors group-hover:text-slate-500 dark:group-hover:text-slate-500">Performance</p>
+                  <div className="rounded-xl border border-border border-l-2 border-l-primary/30 bg-background-elevated px-4 py-2 flex flex-col justify-center">
+                    <p className="text-xs text-text-tertiary">Performance</p>
                     <p className="text-base font-semibold text-secondary truncate">
                       {project.metrics.performance}
                     </p>
                   </div>
                 )}
                 {project.metrics.uptime && (
-                  <div className="rounded-2xl border border-border/60 dark:border-white/15 bg-surface-1/60 px-4 py-2 flex flex-col justify-center">
-                    <p className="text-xs text-text-tertiary dark:text-text-dark-tertiary transition-colors group-hover:text-slate-500 dark:group-hover:text-slate-500">Uptime</p>
-                    <p className="text-base font-semibold text-secondary truncate">{project.metrics.uptime}</p>
+                  <div className="rounded-xl border border-border border-l-2 border-l-primary/30 bg-background-elevated px-4 py-2 flex flex-col justify-center">
+                    <p className="text-xs text-text-tertiary">Uptime</p>
+                    <p className="text-base font-semibold text-accent truncate">{project.metrics.uptime}</p>
                   </div>
                 )}
               </div>
@@ -118,7 +118,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
           <div className="mb-6 h-20 overflow-y-auto">
             <div className="flex flex-wrap gap-2">
               {project.tech.map((tech) => (
-                <Badge key={tech} variant="secondary" className="text-xs font-semibold">
+                <Badge key={tech} variant="secondary" className="text-xs font-medium">
                   {tech}
                 </Badge>
               ))}
@@ -133,9 +133,9 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`View ${project.title} source code on GitHub`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 rounded-full border border-gray-400 dark:border-slate-500 px-5 py-2 text-sm text-text-primary dark:text-white transition hover:border-slate-400 hover:bg-slate-50 dark:hover:border-slate-400 dark:hover:bg-slate-800/50"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="flex items-center gap-2 rounded-xl border border-border px-5 py-2 text-sm text-text-secondary transition-all duration-200 hover:border-primary/50 hover:text-primary hover:bg-primary/5"
               >
                 <FiGithub className="w-4 h-4" />
                 <span className="text-sm">Code</span>
@@ -147,9 +147,9 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`View ${project.title} live demo`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 rounded-full border border-gray-400 dark:border-slate-500 px-5 py-2 text-sm text-text-primary dark:text-white transition hover:border-slate-400 hover:bg-slate-50 dark:hover:border-slate-400 dark:hover:bg-slate-800/50"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="flex items-center gap-2 rounded-xl border border-border px-5 py-2 text-sm text-text-secondary transition-all duration-200 hover:border-primary/50 hover:text-primary hover:bg-primary/5"
               >
                 <FiExternalLink className="w-4 h-4" />
                 <span className="text-sm">Live Demo</span>
