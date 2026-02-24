@@ -39,58 +39,58 @@ export default function SidebarLayout({ children }: { children: React.ReactNode 
   };
 
   return (
-    <div className="relative min-h-screen lg:flex lg:gap-0">
+    <div className="max-w-[1400px] mx-auto relative min-h-screen lg:flex lg:gap-0">
       {/* Cursor spotlight overlay */}
       <div
         className="pointer-events-none fixed inset-0 z-30"
         style={{
-          background: `radial-gradient(600px circle at ${mouse.x}px ${mouse.y}px, rgba(68,38,217,0.08), transparent 40%)`,
+          background: `radial-gradient(500px circle at ${mouse.x}px ${mouse.y}px, rgba(77,178,179,0.06), transparent 40%)`,
         }}
         aria-hidden="true"
       />
 
-      {/* ── Left sticky panel ── */}
-      <aside className="lg:sticky lg:top-0 lg:h-screen lg:w-[44%] xl:w-[42%] flex flex-col justify-between px-6 py-12 lg:px-10 lg:py-20 xl:px-14">
+      {/* ── Left sticky panel — fluid clamp width ── */}
+      <aside className="lg:sticky lg:top-0 lg:h-screen lg:w-[clamp(280px,38vw,480px)] lg:shrink-0 flex flex-col justify-between px-6 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-20 xl:px-14">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-8"
+          className="space-y-10"
         >
-          <div>
-            <h1 className="text-5xl xl:text-6xl font-bold tracking-tight text-foreground">
+          <div className="space-y-2">
+            <h1 className="text-4xl sm:text-5xl xl:text-6xl font-bold tracking-tight text-text-primary">
               Gaurav Patel
             </h1>
-            <p className="mt-3 text-xl font-medium text-primary">
+            <p className="text-xl font-semibold text-primary">
               Full Stack Engineer
             </p>
-            <p className="mt-4 text-base text-foreground/60 max-w-sm leading-relaxed">
+            <p className="pt-2 text-base text-text-secondary max-w-sm leading-relaxed">
               Building scalable, high-performance web products that feel crafted.
             </p>
           </div>
 
-          <nav className="space-y-2" aria-label="On-page navigation">
+          <nav className="space-y-1" aria-label="On-page navigation">
             {NAV_ITEMS.map((item) => {
               const isActive = activeSection === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
-                  className="group flex items-center gap-4 w-full text-left py-1.5"
+                  className="group flex items-center gap-4 w-full text-left py-2"
                   aria-current={isActive ? 'location' : undefined}
                 >
                   <span
                     className={`block h-px transition-all duration-300 ${
                       isActive
-                        ? 'w-12 bg-foreground'
-                        : 'w-6 bg-foreground/30 group-hover:w-10 group-hover:bg-foreground/60'
+                        ? 'w-12 bg-primary'
+                        : 'w-6 bg-text-tertiary/50 group-hover:w-10 group-hover:bg-text-tertiary/80'
                     }`}
                   />
                   <span
                     className={`text-xs uppercase tracking-widest transition-colors duration-200 ${
                       isActive
-                        ? 'text-foreground font-semibold'
-                        : 'text-foreground/40 group-hover:text-foreground/70'
+                        ? 'text-primary font-semibold'
+                        : 'text-text-tertiary group-hover:text-text-secondary'
                     }`}
                   >
                     {item.label}
@@ -105,7 +105,7 @@ export default function SidebarLayout({ children }: { children: React.ReactNode 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex items-center gap-6"
+          className="flex items-center gap-5"
         >
           {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
             <a
@@ -114,7 +114,7 @@ export default function SidebarLayout({ children }: { children: React.ReactNode 
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="text-foreground/40 hover:text-foreground transition-colors duration-200"
+              className="text-text-muted hover:text-primary transition-colors duration-200"
             >
               <Icon className="w-5 h-5" />
             </a>
@@ -125,7 +125,7 @@ export default function SidebarLayout({ children }: { children: React.ReactNode 
       {/* ── Right content panel ── */}
       <main
         id="main-content"
-        className="flex-1 lg:w-[56%] xl:w-[58%]"
+        className="flex-1 min-w-0"
       >
         {children}
       </main>

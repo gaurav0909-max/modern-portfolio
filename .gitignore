@@ -42,3 +42,6 @@ nul
 output/
 scripts/**/*.js
 scripts/**/*.d.ts
+
+env/.env.dev
+env/.env.prod

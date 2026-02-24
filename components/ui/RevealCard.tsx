@@ -19,8 +19,8 @@ interface RevealCardProps {
 export function RevealCard({
   children,
   className,
-  glowColor = 'rgba(113, 60, 188, 0.15)',
-  glowSize = 600,
+  glowColor = 'rgba(77, 178, 179, 0.08)',
+  glowSize = 400,
   onClick,
 }: RevealCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -43,7 +43,7 @@ export function RevealCard({
       onMouseMove={handleMouseMove}
       onClick={onClick}
       className={cn(
-        'relative group p-6 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 overflow-hidden',
+        'relative group p-6 rounded-xl bg-white border border-border overflow-hidden',
         className
       )}
     >

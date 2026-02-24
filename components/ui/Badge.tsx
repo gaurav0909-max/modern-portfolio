@@ -15,10 +15,10 @@ export function Badge({
   icon
 }: BadgeProps) {
   const variants = {
-    default: 'bg-blue-slate-900/60 text-blue-slate-100 border-blue-slate-700 hover:bg-blue-slate-800/70 hover:border-blue-slate-600',
-    primary: 'bg-primary/20 text-primary border-primary/30 hover:bg-primary/30 hover:border-primary/50',
-    secondary: 'bg-secondary/20 text-secondary border-secondary/30 hover:bg-secondary/30 hover:border-secondary/50',
-    accent: 'bg-accent/20 text-accent border-accent/30 hover:bg-accent/30 hover:border-accent/50',
+    default: 'bg-background-elevated text-text-secondary border-border hover:bg-background-elevated-hover hover:border-border-hover',
+    primary: 'bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 hover:border-primary/40',
+    secondary: 'bg-secondary/10 text-secondary border-secondary/20 hover:bg-secondary/20 hover:border-secondary/40',
+    accent: 'bg-accent/10 text-accent border-accent/20 hover:bg-accent/20 hover:border-accent/40',
   }
 
   return (
