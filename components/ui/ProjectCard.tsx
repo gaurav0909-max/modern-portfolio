@@ -27,10 +27,10 @@ export interface Project {
 
 interface ProjectCardProps {
   project: Project;
-  featured?: boolean;
+  hero?: boolean;
 }
 
-export default function ProjectCard({ project, featured = false }: ProjectCardProps) {
+export default function ProjectCard({ project, hero = false }: ProjectCardProps) {
 
   return (
     <motion.div
@@ -41,9 +41,8 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
       className="group relative h-full"
     >
       <div
-        className={`relative h-full overflow-hidden rounded-xl border border-border bg-white p-7 shadow-card transition-all duration-500
-          ${featured ? 'lg:flex lg:gap-10 lg:p-10' : ''}
-          group-hover:border-border-accent group-hover:bg-background-elevated group-hover:shadow-card-hover group-hover:-translate-y-0.5`}
+        className="relative h-full overflow-hidden rounded-xl border border-border bg-white p-7 shadow-card transition-all duration-500
+          group-hover:border-border-accent group-hover:bg-background-elevated group-hover:shadow-card-hover group-hover:-translate-y-0.5"
       >
         {/* Subtle primary overlay on hover */}
         <div
@@ -53,23 +52,23 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
           }}
         />
 
-        {/* Image/Video container */}
+        {/* Image container */}
         <div
-          className={`relative overflow-hidden rounded-xl bg-background-elevated ${featured ? 'lg:w-1/2' : 'aspect-[16/9] mb-6'}`}
+          className={`relative overflow-hidden rounded-xl bg-background-elevated mb-6 ${hero ? 'aspect-[3/1]' : 'aspect-[16/9]'}`}
         >
           <Image
             src={project.image}
             alt={`${project.title} - ${project.tagline}`}
             fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
             className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-            loading={featured ? "eager" : "lazy"}
-            priority={featured}
+            loading={hero ? "eager" : "lazy"}
+            priority={hero}
           />
         </div>
 
         {/* Content */}
-        <div className={`relative flex flex-col ${featured ? 'lg:w-1/2' : ''}`}>
+        <div className="relative flex flex-col">
           {/* Tagline - Fixed height */}
           <div className="mb-4 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-text-tertiary h-4">
             <span className="h-[1px] w-8 bg-primary/40" />

@@ -160,7 +160,7 @@ export default function Contact() {
           <motion.div variants={fadeInUp} className="space-y-3">
             <p className="text-xs uppercase tracking-widest text-text-tertiary">Contact</p>
             <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-text-primary">Get in Touch</h2>
-            <p className="text-base text-text-secondary leading-relaxed">Drop a line. I read every message — yes, really.</p>
+            <p className="text-base text-text-secondary leading-relaxed">Drop a line. I read every message - yes, really.</p>
           </motion.div>
 
           {/* Main Content */}
@@ -279,7 +279,7 @@ export default function Contact() {
                   <h3 className="text-2xl font-bold text-text-primary mb-1">Send a Message</h3>
                   <p className="text-text-secondary mb-1">Fill out the form and I'll get back to you within 24 hours.</p>
                   <p className="text-sm text-primary font-medium mb-8">
-                    Send something interesting — I might just offer you a virtual coffee.
+                    Send something interesting - I might just offer you a virtual coffee.
                   </p>
 
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
