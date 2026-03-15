@@ -50,7 +50,7 @@ export default function SidebarLayout({ children }: { children: React.ReactNode 
       />
 
       {/* ── Left sticky panel — fluid clamp width ── */}
-      <aside className="lg:sticky lg:top-0 lg:h-screen lg:w-[clamp(280px,38vw,480px)] lg:shrink-0 flex flex-col justify-between px-6 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-20 xl:px-14">
+      <aside className="lg:sticky lg:top-0 lg:h-screen lg:w-[clamp(280px,38vw,480px)] lg:shrink-0 flex flex-col justify-start lg:justify-between px-6 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-20 xl:px-14">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -67,6 +67,10 @@ export default function SidebarLayout({ children }: { children: React.ReactNode 
             <p className="pt-2 text-base text-text-secondary max-w-sm leading-relaxed">
               Building scalable, high-performance web products that feel crafted.
             </p>
+
+            <p className="pt-2 text-base text-text-secondary max-w-sm leading-relaxed">
+              I enjoy building fast, scalable web products and solving complex engineering problems.
+            </p>
           </div>
 
           <nav className="space-y-1" aria-label="On-page navigation">
@@ -80,18 +84,16 @@ export default function SidebarLayout({ children }: { children: React.ReactNode 
                   aria-current={isActive ? 'location' : undefined}
                 >
                   <span
-                    className={`block h-px transition-all duration-300 ${
-                      isActive
+                    className={`block h-px transition-all duration-300 ${isActive
                         ? 'w-12 bg-primary'
                         : 'w-6 bg-text-tertiary/50 group-hover:w-10 group-hover:bg-text-tertiary/80'
-                    }`}
+                      }`}
                   />
                   <span
-                    className={`text-xs uppercase tracking-widest transition-colors duration-200 ${
-                      isActive
+                    className={`text-xs uppercase tracking-widest transition-colors duration-200 ${isActive
                         ? 'text-primary font-semibold'
                         : 'text-text-tertiary group-hover:text-text-secondary'
-                    }`}
+                      }`}
                   >
                     {item.label}
                   </span>
@@ -105,7 +107,7 @@ export default function SidebarLayout({ children }: { children: React.ReactNode 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex items-center gap-5"
+          className="flex items-center gap-5 mt-8 lg:mt-0"
         >
           {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
             <a

@@ -67,7 +67,7 @@ const focusAreas = [
   {
     icon: FiCode,
     title: 'Software Development',
-    description: 'Owning feature lifecycles end-to-end — from UX flows and APIs to observability and rollout.',
+    description: 'Owning feature lifecycles end-to-end - from UX flows and APIs to observability and rollout.',
     tags: ['Next.js', 'Node.js', 'Design Systems'],
   },
   {
@@ -118,7 +118,7 @@ export default function About() {
               <div className="relative z-10 space-y-6">
                 <p className="text-lg text-text-secondary leading-relaxed">
                   I'm a <span className="text-text-primary font-semibold">Full Stack Engineer</span> crafting scalable experiences across the
-                  <span className="text-secondary font-semibold"> MERN stack</span>. At Nova, I steer end-to-end delivery—from discovery workshops to instrumented releases—while collaborating with product, design, and ops.
+                  <span className="text-secondary font-semibold"> MERN stack</span>. At Nova, I steer end-to-end delivery from discovery workshops to instrumented releases, while collaborating with product, design, and ops.
                 </p>
                 <p className="text-lg text-text-secondary leading-relaxed">
                   Recent work spans <span className="text-primary font-semibold">real-time collaboration tooling</span>, data-heavy analytics, and platform modernisation. I obsess over performance budgets, DX, and measurable impact.
@@ -174,10 +174,8 @@ export default function About() {
               >
                 {/* Micro top-accent line */}
                 <div className="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-                {/* Icon — top-right, muted */}
-                <stat.icon className="absolute top-3 right-3 w-4 h-4 text-text-muted" />
-                <AnimatedStat value={stat.value} suffix={stat.suffix} className={`text-3xl md:text-4xl font-bold ${stat.color}`} />
-                <p className="text-xs uppercase tracking-widest text-text-tertiary mt-2">{stat.label}</p>
+                <AnimatedStat value={stat.value} suffix={stat.suffix} className={`text-2xl font-bold ${stat.color}`} />
+                <p className="text-[10px] uppercase tracking-widest text-text-tertiary mt-1.5">{stat.label}</p>
               </RevealCard>
             ))}
           </motion.div>

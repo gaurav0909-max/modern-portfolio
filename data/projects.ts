@@ -56,40 +56,40 @@ export const projects: Project[] = [
       live: 'https://care-connect-ashen.vercel.app',
     },
   },
-  {
-    id: 'comfy-space',
-    title: 'Comfy Space',
-    tagline: 'Interior Design Platform',
-    description:
-      'A modern interior design and furniture showcase platform. Features responsive design, smooth animations, and an intuitive browsing experience for home decor enthusiasts to discover and explore.',
-    image:
-      'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=80',
-    tech: ['React.js', 'Next.js', 'Vercel', 'Tailwind CSS'],
-    metrics: {
-      performance: '659ms response time',
-    },
-    links: {
-      github: 'https://github.com/gaurav0909-max/comfy-space',
-      live: 'https://comfy-space.vercel.app',
-    },
-  },
-  {
-    id: 'cloudinary-upload',
-    title: 'Cloudinary Upload',
-    tagline: 'File Upload & Management',
-    description:
-      'A streamlined file upload and management system powered by Cloudinary. Supports drag-and-drop uploads, automatic optimization, and shareable links for media assets with cloud integration.',
-    image:
-      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80',
-    tech: ['React.js', 'Cloudinary API', 'Next.js', 'Vercel'],
-    metrics: {
-      performance: '885ms response time',
-    },
-    links: {
-      github: 'https://github.com/gaurav0909-max/cloudinary-upload',
-      live: 'https://file-cloudinary-url-gaurav.vercel.app/',
-    },
-  },
+  // {
+  //   id: 'comfy-space',
+  //   title: 'Comfy Space',
+  //   tagline: 'Interior Design Platform',
+  //   description:
+  //     'A modern interior design and furniture showcase platform. Features responsive design, smooth animations, and an intuitive browsing experience for home decor enthusiasts to discover and explore.',
+  //   image:
+  //     'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=80',
+  //   tech: ['React.js', 'Next.js', 'Vercel', 'Tailwind CSS'],
+  //   metrics: {
+  //     performance: '659ms response time',
+  //   },
+  //   links: {
+  //     github: 'https://github.com/gaurav0909-max/comfy-space',
+  //     live: 'https://comfy-space.vercel.app',
+  //   },
+  // },
+  // {
+  //   id: 'cloudinary-upload',
+  //   title: 'Cloudinary Upload',
+  //   tagline: 'File Upload & Management',
+  //   description:
+  //     'A streamlined file upload and management system powered by Cloudinary. Supports drag-and-drop uploads, automatic optimization, and shareable links for media assets with cloud integration.',
+  //   image:
+  //     'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80',
+  //   tech: ['React.js', 'Cloudinary API', 'Next.js', 'Vercel'],
+  //   metrics: {
+  //     performance: '885ms response time',
+  //   },
+  //   links: {
+  //     github: 'https://github.com/gaurav0909-max/cloudinary-upload',
+  //     live: 'https://file-cloudinary-url-gaurav.vercel.app/',
+  //   },
+  // },
 ];
 
 // Get featured projects

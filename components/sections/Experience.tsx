@@ -26,6 +26,7 @@ const experiences = [
   {
     company: 'Spaceo Technologies Pvt. Ltd.',
     role: 'Full Stack Developer',
+    type: 'Contract',
     period: 'May 2025 - Aug 2025',
     location: 'Ahmedabad, India',
     description:
@@ -76,7 +77,14 @@ export default function Experience() {
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                     <div>
                       <p className="text-xs uppercase tracking-widest text-text-tertiary mb-1">{exp.company}</p>
-                      <h4 className="text-xl font-semibold text-text-primary">{exp.role}</h4>
+                      <div className="flex items-center gap-2">
+                        <h4 className="text-xl font-semibold text-text-primary">{exp.role}</h4>
+                        {exp.type === 'Contract' && (
+                          <span className="px-2 py-0.5 rounded-full border border-secondary/40 text-[10px] font-medium uppercase tracking-wide text-secondary bg-secondary/8">
+                            Contract
+                          </span>
+                        )}
+                      </div>
                     </div>
                     <div className="text-text-tertiary text-sm md:text-right shrink-0 leading-relaxed">
                       <p>{exp.period}</p>
