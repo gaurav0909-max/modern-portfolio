@@ -86,7 +86,7 @@ export default function ProjectCard({ project, hero = false }: ProjectCardProps)
           </div>
 
           {/* Metrics - Fixed height */}
-          <div className="mb-5 h-20">
+          <div className="mb-5 min-h-20">
             {project.metrics && (
               <div className="grid gap-2 text-sm sm:grid-cols-2 h-full">
                 {project.metrics.users && (
@@ -114,7 +114,7 @@ export default function ProjectCard({ project, hero = false }: ProjectCardProps)
           </div>
 
           {/* Tech stack - Fixed height with scroll */}
-          <div className="mb-6 h-20 overflow-y-auto">
+          <div className="mb-6">
             <div className="flex flex-wrap gap-2">
               {project.tech.map((tech) => (
                 <Badge key={tech} variant="secondary" className="text-xs font-medium">

@@ -118,7 +118,7 @@ export default function About() {
               <div className="relative z-10 space-y-6">
                 <p className="text-lg text-text-secondary leading-relaxed">
                   I'm a <span className="text-text-primary font-semibold">Full Stack Engineer</span> crafting scalable experiences across the
-                  <span className="text-secondary font-semibold"> MERN stack</span>. At Nova, I steer end-to-end delivery - from discovery workshops to instrumented releases - while collaborating with product, design, and ops.
+                  <span className="text-secondary font-semibold"> MERN stack</span>. At Nova, I steer end-to-end delivery from discovery workshops to instrumented releases, while collaborating with product, design, and ops.
                 </p>
                 <p className="text-lg text-text-secondary leading-relaxed">
                   Recent work spans <span className="text-primary font-semibold">real-time collaboration tooling</span>, data-heavy analytics, and platform modernisation. I obsess over performance budgets, DX, and measurable impact.
