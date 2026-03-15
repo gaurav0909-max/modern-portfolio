@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",   // build failed resolve by adding this line.
   trailingSlash: true,
   images: {
     remotePatterns: [
